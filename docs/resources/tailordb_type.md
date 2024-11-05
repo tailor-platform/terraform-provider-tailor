@@ -44,7 +44,7 @@ Optional:
 - `allowed_values` (Attributes List) Allowed values for enum fields. (see [below for nested schema](#nestedatt--fields--allowed_values))
 - `array` (Boolean) Whether the field is an array.
 - `description` (String) The description of the field.
-- `fields` (Attributes Map) (see [below for nested schema](#nestedatt--fields--fields))
+- `fields` (Attributes Map) Fields for this TailorDBType. (see [below for nested schema](#nestedatt--fields--fields))
 - `foreign_key` (Attributes) Foreign key settings. (see [below for nested schema](#nestedatt--fields--foreign_key))
 - `hooks` (Attributes) Hooks settings. (see [below for nested schema](#nestedatt--fields--hooks))
 - `index` (Boolean) Whether the field is indexed.
