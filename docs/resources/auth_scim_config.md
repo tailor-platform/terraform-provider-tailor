@@ -35,12 +35,12 @@ Optional:
 
 Required:
 
-- `secret_value` (Attributes) (see [below for nested schema](#nestedatt--authorization--api_key--secret_value))
+- `secret_value` (Attributes) The secret value to load. (see [below for nested schema](#nestedatt--authorization--api_key--secret_value))
 
 <a id="nestedatt--authorization--api_key--secret_value"></a>
 ### Nested Schema for `authorization.api_key.secret_value`
 
 Required:
 
-- `secret_name` (String)
-- `vault_name` (String)
+- `secret_name` (String) The name of the secret.
+- `vault_name` (String) The name of the vault.
