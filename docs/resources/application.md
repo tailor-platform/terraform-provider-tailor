@@ -62,6 +62,7 @@ resource "tailor_application" "starwars" {
 - `allowed_ip_addresses` (List of String) The list of allowed IP addresses in CIDR notation.
 - `auth` (Attributes) The auth configuration of the application for user authentication. (see [below for nested schema](#nestedatt--auth))
 - `cors` (List of String) The list of allowed origins for CORS.
+- `disable_introspection` (Boolean) Disable GraphQL introspection for the application.
 
 <a id="nestedatt--subgraphs"></a>
 ### Nested Schema for `subgraphs`
