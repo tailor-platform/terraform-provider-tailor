@@ -22,6 +22,7 @@ The workspace resource represents a Workspace in Tailor.
 
 ### Optional
 
+- `delete_protection` (Boolean) Whether the workspace is protected from deletion.
 - `folder_id` (String) The ID of the organization folder that the workspace belongs to.
 - `organization_id` (String) The ID of the organization that the workspace belongs to.
 
