@@ -177,3 +177,7 @@ Required:
 
 <a id="nestedatt--trigger--webhook"></a>
 ### Nested Schema for `trigger.webhook`
+
+Read-Only:
+
+- `url` (String) The computed URL for the webhook trigger.
