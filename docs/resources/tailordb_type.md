@@ -49,6 +49,7 @@ Optional:
 - `hooks` (Attributes) Hooks settings. (see [below for nested schema](#nestedatt--fields--hooks))
 - `index` (Boolean) Whether the field is indexed.
 - `required` (Boolean) Whether the field is required.
+- `serial` (Attributes) (see [below for nested schema](#nestedatt--fields--serial))
 - `source` (String) The source of the field.
 - `unique` (Boolean) Whether the field is unique.
 - `validate` (Attributes List) Validation settings for fields. (see [below for nested schema](#nestedatt--fields--validate))
@@ -82,6 +83,7 @@ Optional:
 - `hooks` (Attributes) Hooks settings. (see [below for nested schema](#nestedatt--fields--fields--hooks))
 - `index` (Boolean) Whether the field is indexed.
 - `required` (Boolean) Whether the field is required.
+- `serial` (Attributes) (see [below for nested schema](#nestedatt--fields--fields--serial))
 - `source` (String) The source of the field.
 - `unique` (Boolean) Whether the field is unique.
 - `validate` (Attributes List) Validation settings for fields. (see [below for nested schema](#nestedatt--fields--fields--validate))
@@ -122,6 +124,19 @@ Optional:
 - `update_expr` (String) The CEL expression to evaluate for update hook.
 
 
+<a id="nestedatt--fields--fields--serial"></a>
+### Nested Schema for `fields.fields.serial`
+
+Required:
+
+- `start` (Number)
+
+Optional:
+
+- `format` (String)
+- `max_value` (Number)
+
+
 <a id="nestedatt--fields--fields--validate"></a>
 ### Nested Schema for `fields.fields.validate`
 
@@ -158,6 +173,19 @@ Optional:
 - `create_expr` (String) The CEL expression to evaluate for create hook.
 - `update` (String) The JavaScript code to evaluate for update hook.
 - `update_expr` (String) The CEL expression to evaluate for update hook.
+
+
+<a id="nestedatt--fields--serial"></a>
+### Nested Schema for `fields.serial`
+
+Required:
+
+- `start` (Number)
+
+Optional:
+
+- `format` (String)
+- `max_value` (Number)
 
 
 <a id="nestedatt--fields--validate"></a>
