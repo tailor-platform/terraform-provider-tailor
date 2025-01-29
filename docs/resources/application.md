@@ -63,6 +63,7 @@ resource "tailor_application" "starwars" {
 - `auth` (Attributes) The auth configuration of the application for user authentication. (see [below for nested schema](#nestedatt--auth))
 - `cors` (List of String) The list of allowed origins for CORS.
 - `disable_introspection` (Boolean) Disable GraphQL introspection for the application.
+- `disabled` (Boolean) Whether the application is disabled.
 
 <a id="nestedatt--subgraphs"></a>
 ### Nested Schema for `subgraphs`

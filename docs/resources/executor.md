@@ -25,6 +25,7 @@ The executor resource represents an executor in Tailor.
 ### Optional
 
 - `description` (String) The description of this executor.
+- `disabled` (Boolean) Whether this executor is disabled.
 
 <a id="nestedatt--operation"></a>
 ### Nested Schema for `operation`
