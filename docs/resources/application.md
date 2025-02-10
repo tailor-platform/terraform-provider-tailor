@@ -65,6 +65,11 @@ resource "tailor_application" "starwars" {
 - `disable_introspection` (Boolean) Disable GraphQL introspection for the application.
 - `disabled` (Boolean) Whether the application is disabled.
 
+### Read-Only
+
+- `domain` (String) The computed domain of the application.
+- `url` (String) The computed URL of the application.
+
 <a id="nestedatt--subgraphs"></a>
 ### Nested Schema for `subgraphs`
 
