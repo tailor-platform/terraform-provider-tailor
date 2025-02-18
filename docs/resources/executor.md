@@ -195,7 +195,14 @@ Optional:
 
 Required:
 
-- `type` (String) The type of the event trigger.
+- `type` (String) Available event types:
+  - `tailordb.type_record.created`
+  - `tailordb.type_record.updated`
+  - `tailordb.type_record.deleted`
+  - `stateflow.state.created`
+  - `stateflow.state.transitioned`
+  - `pipeline.resolver.executed`
+see our [documentation](https://docs.tailor.tech) for more information.
 
 Optional:
 
