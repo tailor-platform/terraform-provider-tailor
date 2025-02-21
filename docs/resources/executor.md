@@ -146,7 +146,7 @@ Optional:
 
 - `body` (String) The body to send with the webhook.
 - `headers` (Attributes List) The headers to send with the webhook. (see [below for nested schema](#nestedatt--operation--webhook--headers))
-- `secret` (Attributes) The secret value to load. (see [below for nested schema](#nestedatt--operation--webhook--secret))
+- `signature_secret` (Attributes) The secret value to load. (see [below for nested schema](#nestedatt--operation--webhook--signature_secret))
 
 <a id="nestedatt--operation--webhook--headers"></a>
 ### Nested Schema for `operation.webhook.headers`
@@ -170,8 +170,8 @@ Required:
 
 
 
-<a id="nestedatt--operation--webhook--secret"></a>
-### Nested Schema for `operation.webhook.secret`
+<a id="nestedatt--operation--webhook--signature_secret"></a>
+### Nested Schema for `operation.webhook.signature_secret`
 
 Required:
 
