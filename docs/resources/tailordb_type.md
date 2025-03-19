@@ -149,6 +149,10 @@ EOF
 - `settings` (Attributes) Miscellaneous settings for this TailorDBType. (see [below for nested schema](#nestedatt--settings))
 - `type_permission` (Attributes) Define type-level permissions for this TailorDBType. (see [below for nested schema](#nestedatt--type_permission))
 
+### Read-Only
+
+- `id` (String) The unique identifier of the resource.
+
 <a id="nestedatt--fields"></a>
 ### Nested Schema for `fields`
 

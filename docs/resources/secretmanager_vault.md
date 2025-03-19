@@ -26,3 +26,7 @@ resource "tailor_secretmanager_vault" "default" {
 
 - `name` (String) The name of this Vault.
 - `workspace_id` (String) The ID of the workspace that the Vault belongs to.
+
+### Read-Only
+
+- `id` (String) The unique identifier of the resource.

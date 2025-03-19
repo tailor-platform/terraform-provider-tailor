@@ -37,3 +37,7 @@ EOF
 ### Optional
 
 - `common_sdl` (String) The common SDL for this pipeline.
+
+### Read-Only
+
+- `id` (String) The unique identifier of the resource.

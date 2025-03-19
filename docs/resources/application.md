@@ -68,6 +68,7 @@ resource "tailor_application" "starwars" {
 ### Read-Only
 
 - `domain` (String) The computed domain of the application.
+- `id` (String) The unique identifier of the resource.
 - `url` (String) The computed URL of the application.
 
 <a id="nestedatt--subgraphs"></a>

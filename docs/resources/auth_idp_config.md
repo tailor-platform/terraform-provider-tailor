@@ -79,6 +79,10 @@ resource "tailor_auth_idp_config" "saml_starwars" {
 - `oidc_config` (Attributes) The configuration for the OIDC type. (see [below for nested schema](#nestedatt--oidc_config))
 - `saml_config` (Attributes) The configuration for the SAML type. (see [below for nested schema](#nestedatt--saml_config))
 
+### Read-Only
+
+- `id` (String) The unique identifier of the resource.
+
 <a id="nestedatt--id_token_config"></a>
 ### Nested Schema for `id_token_config`
 

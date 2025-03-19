@@ -62,6 +62,10 @@ EOF
 - `description` (String) The description of this executor.
 - `disabled` (Boolean) Whether this executor is disabled.
 
+### Read-Only
+
+- `id` (String) The unique identifier of the resource.
+
 <a id="nestedatt--operation"></a>
 ### Nested Schema for `operation`
 

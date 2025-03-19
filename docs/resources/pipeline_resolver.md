@@ -99,6 +99,10 @@ EOF
 - `publish_execution_events` (Boolean) Whether to publish execution events for this pipeline resolver.
 - `steps` (Attributes List) The list of steps for this pipeline resolver. (see [below for nested schema](#nestedatt--steps))
 
+### Read-Only
+
+- `id` (String) The unique identifier of the resource.
+
 <a id="nestedatt--authorization"></a>
 ### Nested Schema for `authorization`
 

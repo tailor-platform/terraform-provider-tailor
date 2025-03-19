@@ -28,6 +28,15 @@ resource "tailor_secretmanager_secret" "death_star_plan" {
 ### Required
 
 - `name` (String) The name of this Secret.
-- `value` (String, Sensitive) The value of this Secret.
 - `vault_name` (String) The vault name for this Secret belongs to.
 - `workspace_id` (String) The ID of the workspace that the Secret belongs to.
+
+### Optional
+
+- `value` (String, Sensitive, Deprecated) The value of this Secret. (Deprecated) Use `vault_wo` instead.
+- `value_wo` (String) The value of this Secret. (Write Only)
+- `value_wo_version` (Number) The version of the value of this Secret. Change this to update the value of the Secret.
+
+### Read-Only
+
+- `id` (String) The unique identifier of the resource.

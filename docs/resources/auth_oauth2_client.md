@@ -43,3 +43,7 @@ resource "tailor_auth_oauth2_client" "c3po" {
 - `description` (String) The description of this OAuth2 client.
 - `grant_types` (List of String) The list of grant types for this OAuth2 client.
 - `redirect_uris` (List of String) The list of redirect URIs for this OAuth2 client.
+
+### Read-Only
+
+- `id` (String) The unique identifier of the resource.

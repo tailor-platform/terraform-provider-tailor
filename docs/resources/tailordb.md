@@ -26,3 +26,7 @@ resource "tailor_tailordb" "galaxy" {
 
 - `namespace` (String) Namespace name for this TailorDB.
 - `workspace_id` (String) The ID of the workspace that the TailorDB belongs to.
+
+### Read-Only
+
+- `id` (String) The unique identifier of the resource.

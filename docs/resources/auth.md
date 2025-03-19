@@ -26,3 +26,7 @@ resource "tailor_auth" "starwars_auth" {
 
 - `namespace` (String) Namespace name for this auth resource.
 - `workspace_id` (String) The ID of the workspace that the auth namespace belongs to.
+
+### Read-Only
+
+- `id` (String) The unique identifier of the resource.

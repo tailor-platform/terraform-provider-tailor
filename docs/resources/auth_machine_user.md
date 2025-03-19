@@ -43,3 +43,4 @@ resource "random_uuid" "r2d2_attribute" {}
 
 - `client_id` (String) The computed client ID of the machine user.
 - `client_secret` (String, Sensitive) The computed client secret of the machine user.
+- `id` (String) The unique identifier of the resource.
