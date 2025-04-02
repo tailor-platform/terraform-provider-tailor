@@ -141,7 +141,6 @@ Optional:
 
 - `function` (Attributes) configuration for the function operation (see [below for nested schema](#nestedatt--steps--operation--function))
 - `tailor_graphql` (Attributes) configuration for the graphql operation to Tailor Platform (see [below for nested schema](#nestedatt--steps--operation--tailor_graphql))
-- `webhook` (Attributes) configuration for the webhook operation (see [below for nested schema](#nestedatt--steps--operation--webhook))
 
 <a id="nestedatt--steps--operation--function"></a>
 ### Nested Schema for `steps.operation.function`
@@ -203,49 +202,3 @@ Required:
 
 - `auth_namespace` (String) The auth namespace of the machine user.
 - `name` (String) The name of the machine user.
-
-
-
-
-<a id="nestedatt--steps--operation--webhook"></a>
-### Nested Schema for `steps.operation.webhook`
-
-Required:
-
-- `url` (String) The URL of the webhook.
-
-Optional:
-
-- `body` (String) The body to send with the webhook.
-- `headers` (Attributes List) The headers to send with the webhook. (see [below for nested schema](#nestedatt--steps--operation--webhook--headers))
-- `signature_secret` (Attributes) The secret value to load. (see [below for nested schema](#nestedatt--steps--operation--webhook--signature_secret))
-
-<a id="nestedatt--steps--operation--webhook--headers"></a>
-### Nested Schema for `steps.operation.webhook.headers`
-
-Required:
-
-- `key` (String) The key of the header.
-
-Optional:
-
-- `raw_value` (String) The raw value of the header.
-- `secret_value` (Attributes) The secret value to load. (see [below for nested schema](#nestedatt--steps--operation--webhook--headers--secret_value))
-
-<a id="nestedatt--steps--operation--webhook--headers--secret_value"></a>
-### Nested Schema for `steps.operation.webhook.headers.secret_value`
-
-Required:
-
-- `secret_name` (String) The name of the secret.
-- `vault_name` (String) The name of the vault.
-
-
-
-<a id="nestedatt--steps--operation--webhook--signature_secret"></a>
-### Nested Schema for `steps.operation.webhook.signature_secret`
-
-Required:
-
-- `secret_name` (String) The name of the secret.
-- `vault_name` (String) The name of the vault.
