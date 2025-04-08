@@ -146,6 +146,7 @@ EOF
 - `extends` (Boolean) Enable GraphQL type extension for this TailorDBType.
 - `indexes` (Attributes Map) Define indexes for this TailorDBType. (see [below for nested schema](#nestedatt--indexes))
 - `record_permission` (Attributes) Define record-level permissions for this TailorDBType. (see [below for nested schema](#nestedatt--record_permission))
+- `relationships` (Attributes Map) Relationships for this TailorDBType. (see [below for nested schema](#nestedatt--relationships))
 - `settings` (Attributes) Miscellaneous settings for this TailorDBType. (see [below for nested schema](#nestedatt--settings))
 - `type_permission` (Attributes) Define type-level permissions for this TailorDBType. (see [below for nested schema](#nestedatt--type_permission))
 
@@ -404,6 +405,21 @@ Optional:
 - `attribute` (String) A single attribute for this permission.
 - `attributes` (List of String) The list of attributes for this permission.
 
+
+
+<a id="nestedatt--relationships"></a>
+### Nested Schema for `relationships`
+
+Required:
+
+- `ref_field` (String) The field of the relationship.
+- `ref_type` (String) The type of the relationship.
+- `src_field` (String) The source field of the relationship.
+
+Optional:
+
+- `array` (Boolean) Array relationship.
+- `description` (String) The description of the relationship.
 
 
 <a id="nestedatt--settings"></a>

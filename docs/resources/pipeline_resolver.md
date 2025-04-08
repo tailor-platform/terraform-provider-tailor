@@ -118,13 +118,13 @@ Optional:
 Required:
 
 - `name` (String) The name of this step.
-- `operation` (Attributes) The operation to perform. (see [below for nested schema](#nestedatt--steps--operation))
 
 Optional:
 
 - `context_data` (String) Attach context data to the step.
 - `description` (String) The description of this step.
 - `loop_with` (String) The CEL expression to evaluate for looping this step.
+- `operation` (Attributes) The operation to perform. (see [below for nested schema](#nestedatt--steps--operation))
 - `post_hook` (String) The post-hook JavaScript code for this step.
 - `post_script` (String) The post-script CEL expression for this step.
 - `post_validation` (String) The post-validation CEL expression for this step.

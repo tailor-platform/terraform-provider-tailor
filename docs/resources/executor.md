@@ -53,6 +53,7 @@ EOF
 ### Required
 
 - `name` (String) The name of this executor.
+- `operation` (Attributes) The operation to perform. (see [below for nested schema](#nestedatt--operation))
 - `trigger` (Attributes) The trigger for this executor. (see [below for nested schema](#nestedatt--trigger))
 - `workspace_id` (String) The ID of the workspace that the executor belongs to.
 
@@ -60,57 +61,10 @@ EOF
 
 - `description` (String) The description of this executor.
 - `disabled` (Boolean) Whether this executor is disabled.
-- `operation` (Attributes) The operation to perform. (see [below for nested schema](#nestedatt--operation))
 
 ### Read-Only
 
 - `id` (String) The unique identifier of the resource.
-
-<a id="nestedatt--trigger"></a>
-### Nested Schema for `trigger`
-
-Optional:
-
-- `event` (Attributes) The configuration for the event trigger. (see [below for nested schema](#nestedatt--trigger--event))
-- `schedule` (Attributes) The configuration for the schedule trigger. (see [below for nested schema](#nestedatt--trigger--schedule))
-- `webhook` (Attributes) The configuration for the webhook trigger. (see [below for nested schema](#nestedatt--trigger--webhook))
-
-<a id="nestedatt--trigger--event"></a>
-### Nested Schema for `trigger.event`
-
-Required:
-
-- `type` (String) Available event types:
-  - `tailordb.type_record.created`
-  - `tailordb.type_record.updated`
-  - `tailordb.type_record.deleted`
-  - `stateflow.state.created`
-  - `stateflow.state.transitioned`
-  - `pipeline.resolver.executed`
-see our [documentation](https://docs.tailor.tech) for more information.
-
-Optional:
-
-- `condition` (String) The condition for the event trigger.
-
-
-<a id="nestedatt--trigger--schedule"></a>
-### Nested Schema for `trigger.schedule`
-
-Required:
-
-- `frequency` (String) The frequency for the schedule trigger in cron format.
-- `timezone` (String) The timezone for the schedule trigger.
-
-
-<a id="nestedatt--trigger--webhook"></a>
-### Nested Schema for `trigger.webhook`
-
-Read-Only:
-
-- `url` (String) The computed URL for the webhook trigger.
-
-
 
 <a id="nestedatt--operation"></a>
 ### Nested Schema for `operation`
@@ -118,6 +72,7 @@ Read-Only:
 Optional:
 
 - `function` (Attributes) configuration for the function operation (see [below for nested schema](#nestedatt--operation--function))
+- `job_function` (Attributes) configuration for the function operation (see [below for nested schema](#nestedatt--operation--job_function))
 - `tailor_graphql` (Attributes) configuration for the graphql operation to Tailor Platform (see [below for nested schema](#nestedatt--operation--tailor_graphql))
 - `webhook` (Attributes) configuration for the webhook operation (see [below for nested schema](#nestedatt--operation--webhook))
 
@@ -144,6 +99,38 @@ Optional:
 
 <a id="nestedatt--operation--function--invoker--machine_user"></a>
 ### Nested Schema for `operation.function.invoker.machine_user`
+
+Required:
+
+- `auth_namespace` (String) The auth namespace of the machine user.
+- `name` (String) The name of the machine user.
+
+
+
+
+<a id="nestedatt--operation--job_function"></a>
+### Nested Schema for `operation.job_function`
+
+Required:
+
+- `name` (String) The name of the function.
+- `script` (String) The script to execute.
+
+Optional:
+
+- `invoker` (Attributes) The invoker of the operation. (see [below for nested schema](#nestedatt--operation--job_function--invoker))
+- `variables` (String) The variables to pass to the function.
+
+<a id="nestedatt--operation--job_function--invoker"></a>
+### Nested Schema for `operation.job_function.invoker`
+
+Optional:
+
+- `event_user` (Boolean) Attach the operation to an event user.
+- `machine_user` (Attributes) Attach the operation to a machine user. (see [below for nested schema](#nestedatt--operation--job_function--invoker--machine_user))
+
+<a id="nestedatt--operation--job_function--invoker--machine_user"></a>
+### Nested Schema for `operation.job_function.invoker.machine_user`
 
 Required:
 
@@ -227,3 +214,50 @@ Required:
 
 - `secret_name` (String) The name of the secret.
 - `vault_name` (String) The name of the vault.
+
+
+
+
+<a id="nestedatt--trigger"></a>
+### Nested Schema for `trigger`
+
+Optional:
+
+- `event` (Attributes) The configuration for the event trigger. (see [below for nested schema](#nestedatt--trigger--event))
+- `schedule` (Attributes) The configuration for the schedule trigger. (see [below for nested schema](#nestedatt--trigger--schedule))
+- `webhook` (Attributes) The configuration for the webhook trigger. (see [below for nested schema](#nestedatt--trigger--webhook))
+
+<a id="nestedatt--trigger--event"></a>
+### Nested Schema for `trigger.event`
+
+Required:
+
+- `type` (String) Available event types:
+  - `tailordb.type_record.created`
+  - `tailordb.type_record.updated`
+  - `tailordb.type_record.deleted`
+  - `stateflow.state.created`
+  - `stateflow.state.transitioned`
+  - `pipeline.resolver.executed`
+see our [documentation](https://docs.tailor.tech) for more information.
+
+Optional:
+
+- `condition` (String) The condition for the event trigger.
+
+
+<a id="nestedatt--trigger--schedule"></a>
+### Nested Schema for `trigger.schedule`
+
+Required:
+
+- `frequency` (String) The frequency for the schedule trigger in cron format.
+- `timezone` (String) The timezone for the schedule trigger.
+
+
+<a id="nestedatt--trigger--webhook"></a>
+### Nested Schema for `trigger.webhook`
+
+Read-Only:
+
+- `url` (String) The computed URL for the webhook trigger.
