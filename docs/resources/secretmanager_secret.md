@@ -33,8 +33,10 @@ resource "tailor_secretmanager_secret" "death_star_plan" {
 
 ### Optional
 
+> **NOTE**: [Write-only arguments](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments) are supported in Terraform 1.11 and later.
+
 - `value` (String, Sensitive, Deprecated) The value of this Secret. (Deprecated) Use `vault_wo` instead.
-- `value_wo` (String) The value of this Secret. (Write Only)
+- `value_wo` (String, [Write-only](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments)) The value of this Secret.
 - `value_wo_version` (Number) The version of the value of this Secret. Change this to update the value of the Secret.
 
 ### Read-Only
