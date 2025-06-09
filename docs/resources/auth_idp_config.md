@@ -126,9 +126,13 @@ Required:
 
 Required:
 
-- `metadata_url` (String) The URL of the SAML metadata.
 - `sp_cert_base64` (Attributes) The secret value to load. (see [below for nested schema](#nestedatt--saml_config--sp_cert_base64))
 - `sp_key_base64` (Attributes) The secret value to load. (see [below for nested schema](#nestedatt--saml_config--sp_key_base64))
+
+Optional:
+
+- `metadata_url` (String) The URL of the SAML metadata.
+- `raw_metadata` (String) The raw SAML metadata.
 
 <a id="nestedatt--saml_config--sp_cert_base64"></a>
 ### Nested Schema for `saml_config.sp_cert_base64`
