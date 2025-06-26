@@ -241,9 +241,9 @@ Optional:
 Optional:
 
 - `create` (String) The JavaScript code to evaluate for create hook.
-- `create_expr` (String) The CEL expression to evaluate for create hook.
+- `create_expr` (String, Deprecated) The CEL expression to evaluate for create hook.
 - `update` (String) The JavaScript code to evaluate for update hook.
-- `update_expr` (String) The CEL expression to evaluate for update hook.
+- `update_expr` (String, Deprecated) The CEL expression to evaluate for update hook.
 
 
 <a id="nestedatt--fields--fields--serial"></a>
@@ -292,9 +292,9 @@ Optional:
 Optional:
 
 - `create` (String) The JavaScript code to evaluate for create hook.
-- `create_expr` (String) The CEL expression to evaluate for create hook.
+- `create_expr` (String, Deprecated) The CEL expression to evaluate for create hook.
 - `update` (String) The JavaScript code to evaluate for update hook.
-- `update_expr` (String) The CEL expression to evaluate for update hook.
+- `update_expr` (String, Deprecated) The CEL expression to evaluate for update hook.
 
 
 <a id="nestedatt--fields--serial"></a>
@@ -430,7 +430,7 @@ Optional:
 - `aggregation` (Boolean) enable aggregation for this TailorDBType.
 - `bulk_upsert` (Boolean) enable bulk upsert for this TailorDBType.
 - `default_query_limit_size` (Number) The default query limit size for this TailorDBType.
-- `draft` (Boolean) enable draft for this TailorDBType.
+- `draft` (Boolean, Deprecated) enable draft for this TailorDBType.
 - `max_bulk_upsert_size` (Number) The maximum number of records to upsert in a single bulk upsert operation.
 - `plural_form` (String) The plural form of this TailorDBType.
 - `publish_record_events` (Boolean) enable publish record events for this TailorDBType.
