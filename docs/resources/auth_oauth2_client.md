@@ -40,6 +40,7 @@ resource "tailor_auth_oauth2_client" "c3po" {
 
 ### Optional
 
+- `client_type` (String) The type of OAuth2 client. Can be "confidential" or "public". Defaults to "confidential" if not specified.
 - `description` (String) The description of this OAuth2 client.
 - `grant_types` (List of String) The list of grant types for this OAuth2 client.
 - `redirect_uris` (List of String) The list of redirect URIs for this OAuth2 client.
