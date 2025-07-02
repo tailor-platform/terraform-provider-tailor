@@ -53,4 +53,5 @@ Required:
 Optional:
 
 - `attribute_fields` (List of String) The list of attribute fields.
+- `attribute_map` (Map of String) The map of attributes.
 - `tenant_id_field` (String) The field that contains the tenant ID.

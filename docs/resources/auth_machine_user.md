@@ -37,6 +37,7 @@ resource "random_uuid" "r2d2_attribute" {}
 
 ### Optional
 
+- `attribute_map` (Attributes Map) The map of attributes for the machine user. (see [below for nested schema](#nestedatt--attribute_map))
 - `attributes` (List of String) The list of attributes for the machine user.
 
 ### Read-Only
@@ -44,3 +45,13 @@ resource "random_uuid" "r2d2_attribute" {}
 - `client_id` (String) The computed client ID of the machine user.
 - `client_secret` (String, Sensitive) The computed client secret of the machine user.
 - `id` (String) The unique identifier of the resource.
+
+<a id="nestedatt--attribute_map"></a>
+### Nested Schema for `attribute_map`
+
+Optional:
+
+- `boolean` (Boolean) Boolean value.
+- `boolean_array` (List of Boolean) Array of boolean values.
+- `string` (String) String value.
+- `string_array` (List of String) Array of string values.

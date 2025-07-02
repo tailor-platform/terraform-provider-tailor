@@ -145,6 +145,7 @@ EOF
 - `directives` (Attributes List) The list of GraphQL directives for this TailorDBType. (see [below for nested schema](#nestedatt--directives))
 - `extends` (Boolean) Enable GraphQL type extension for this TailorDBType.
 - `indexes` (Attributes Map) Define indexes for this TailorDBType. (see [below for nested schema](#nestedatt--indexes))
+- `permission` (Attributes) Define permissions for this TailorDBType. (see [below for nested schema](#nestedatt--permission))
 - `record_permission` (Attributes) Define record-level permissions for this TailorDBType. (see [below for nested schema](#nestedatt--record_permission))
 - `relationships` (Attributes Map) Relationships for this TailorDBType. (see [below for nested schema](#nestedatt--relationships))
 - `settings` (Attributes) Miscellaneous settings for this TailorDBType. (see [below for nested schema](#nestedatt--settings))
@@ -356,6 +357,293 @@ Required:
 Optional:
 
 - `unique` (Boolean)
+
+
+<a id="nestedatt--permission"></a>
+### Nested Schema for `permission`
+
+Required:
+
+- `create` (Attributes List) List of permission policies for this TailorDB type. (see [below for nested schema](#nestedatt--permission--create))
+- `delete` (Attributes List) List of permission policies for this TailorDB type. (see [below for nested schema](#nestedatt--permission--delete))
+- `read` (Attributes List) List of permission policies for this TailorDB type. (see [below for nested schema](#nestedatt--permission--read))
+- `update` (Attributes List) List of permission policies for this TailorDB type. (see [below for nested schema](#nestedatt--permission--update))
+
+<a id="nestedatt--permission--create"></a>
+### Nested Schema for `permission.create`
+
+Required:
+
+- `permit` (String) Permission type for this policy. Supported values are 'allow', 'deny'.
+
+Optional:
+
+- `conditions` (Attributes List) List of conditions that must be met for this policy to apply. (see [below for nested schema](#nestedatt--permission--create--conditions))
+- `description` (String) Optional description for this policy.
+
+<a id="nestedatt--permission--create--conditions"></a>
+### Nested Schema for `permission.create.conditions`
+
+Required:
+
+- `left` (Attributes) Operand for this condition. (see [below for nested schema](#nestedatt--permission--create--conditions--left))
+- `operator` (String) Comparison operator for this condition. Supported values are 'eq', 'ne', 'in', 'nin'.
+- `right` (Attributes) Operand for this condition. (see [below for nested schema](#nestedatt--permission--create--conditions--right))
+
+<a id="nestedatt--permission--create--conditions--left"></a>
+### Nested Schema for `permission.create.conditions.left`
+
+Optional:
+
+- `new_record` (String) Reference to a new record field.
+- `old_record` (String) Reference to an old record field.
+- `record` (String) Reference to a record field.
+- `user` (String) Reference to a user field.
+- `value` (Attributes) Static value. (see [below for nested schema](#nestedatt--permission--create--conditions--left--value))
+
+<a id="nestedatt--permission--create--conditions--left--value"></a>
+### Nested Schema for `permission.create.conditions.left.value`
+
+Optional:
+
+- `boolean` (Boolean) Boolean value.
+- `boolean_array` (List of Boolean) Array of boolean values.
+- `string` (String) String value.
+- `string_array` (List of String) Array of string values.
+
+
+
+<a id="nestedatt--permission--create--conditions--right"></a>
+### Nested Schema for `permission.create.conditions.right`
+
+Optional:
+
+- `new_record` (String) Reference to a new record field.
+- `old_record` (String) Reference to an old record field.
+- `record` (String) Reference to a record field.
+- `user` (String) Reference to a user field.
+- `value` (Attributes) Static value. (see [below for nested schema](#nestedatt--permission--create--conditions--right--value))
+
+<a id="nestedatt--permission--create--conditions--right--value"></a>
+### Nested Schema for `permission.create.conditions.right.value`
+
+Optional:
+
+- `boolean` (Boolean) Boolean value.
+- `boolean_array` (List of Boolean) Array of boolean values.
+- `string` (String) String value.
+- `string_array` (List of String) Array of string values.
+
+
+
+
+
+<a id="nestedatt--permission--delete"></a>
+### Nested Schema for `permission.delete`
+
+Required:
+
+- `permit` (String) Permission type for this policy. Supported values are 'allow', 'deny'.
+
+Optional:
+
+- `conditions` (Attributes List) List of conditions that must be met for this policy to apply. (see [below for nested schema](#nestedatt--permission--delete--conditions))
+- `description` (String) Optional description for this policy.
+
+<a id="nestedatt--permission--delete--conditions"></a>
+### Nested Schema for `permission.delete.conditions`
+
+Required:
+
+- `left` (Attributes) Operand for this condition. (see [below for nested schema](#nestedatt--permission--delete--conditions--left))
+- `operator` (String) Comparison operator for this condition. Supported values are 'eq', 'ne', 'in', 'nin'.
+- `right` (Attributes) Operand for this condition. (see [below for nested schema](#nestedatt--permission--delete--conditions--right))
+
+<a id="nestedatt--permission--delete--conditions--left"></a>
+### Nested Schema for `permission.delete.conditions.left`
+
+Optional:
+
+- `new_record` (String) Reference to a new record field.
+- `old_record` (String) Reference to an old record field.
+- `record` (String) Reference to a record field.
+- `user` (String) Reference to a user field.
+- `value` (Attributes) Static value. (see [below for nested schema](#nestedatt--permission--delete--conditions--left--value))
+
+<a id="nestedatt--permission--delete--conditions--left--value"></a>
+### Nested Schema for `permission.delete.conditions.left.value`
+
+Optional:
+
+- `boolean` (Boolean) Boolean value.
+- `boolean_array` (List of Boolean) Array of boolean values.
+- `string` (String) String value.
+- `string_array` (List of String) Array of string values.
+
+
+
+<a id="nestedatt--permission--delete--conditions--right"></a>
+### Nested Schema for `permission.delete.conditions.right`
+
+Optional:
+
+- `new_record` (String) Reference to a new record field.
+- `old_record` (String) Reference to an old record field.
+- `record` (String) Reference to a record field.
+- `user` (String) Reference to a user field.
+- `value` (Attributes) Static value. (see [below for nested schema](#nestedatt--permission--delete--conditions--right--value))
+
+<a id="nestedatt--permission--delete--conditions--right--value"></a>
+### Nested Schema for `permission.delete.conditions.right.value`
+
+Optional:
+
+- `boolean` (Boolean) Boolean value.
+- `boolean_array` (List of Boolean) Array of boolean values.
+- `string` (String) String value.
+- `string_array` (List of String) Array of string values.
+
+
+
+
+
+<a id="nestedatt--permission--read"></a>
+### Nested Schema for `permission.read`
+
+Required:
+
+- `permit` (String) Permission type for this policy. Supported values are 'allow', 'deny'.
+
+Optional:
+
+- `conditions` (Attributes List) List of conditions that must be met for this policy to apply. (see [below for nested schema](#nestedatt--permission--read--conditions))
+- `description` (String) Optional description for this policy.
+
+<a id="nestedatt--permission--read--conditions"></a>
+### Nested Schema for `permission.read.conditions`
+
+Required:
+
+- `left` (Attributes) Operand for this condition. (see [below for nested schema](#nestedatt--permission--read--conditions--left))
+- `operator` (String) Comparison operator for this condition. Supported values are 'eq', 'ne', 'in', 'nin'.
+- `right` (Attributes) Operand for this condition. (see [below for nested schema](#nestedatt--permission--read--conditions--right))
+
+<a id="nestedatt--permission--read--conditions--left"></a>
+### Nested Schema for `permission.read.conditions.left`
+
+Optional:
+
+- `new_record` (String) Reference to a new record field.
+- `old_record` (String) Reference to an old record field.
+- `record` (String) Reference to a record field.
+- `user` (String) Reference to a user field.
+- `value` (Attributes) Static value. (see [below for nested schema](#nestedatt--permission--read--conditions--left--value))
+
+<a id="nestedatt--permission--read--conditions--left--value"></a>
+### Nested Schema for `permission.read.conditions.left.value`
+
+Optional:
+
+- `boolean` (Boolean) Boolean value.
+- `boolean_array` (List of Boolean) Array of boolean values.
+- `string` (String) String value.
+- `string_array` (List of String) Array of string values.
+
+
+
+<a id="nestedatt--permission--read--conditions--right"></a>
+### Nested Schema for `permission.read.conditions.right`
+
+Optional:
+
+- `new_record` (String) Reference to a new record field.
+- `old_record` (String) Reference to an old record field.
+- `record` (String) Reference to a record field.
+- `user` (String) Reference to a user field.
+- `value` (Attributes) Static value. (see [below for nested schema](#nestedatt--permission--read--conditions--right--value))
+
+<a id="nestedatt--permission--read--conditions--right--value"></a>
+### Nested Schema for `permission.read.conditions.right.value`
+
+Optional:
+
+- `boolean` (Boolean) Boolean value.
+- `boolean_array` (List of Boolean) Array of boolean values.
+- `string` (String) String value.
+- `string_array` (List of String) Array of string values.
+
+
+
+
+
+<a id="nestedatt--permission--update"></a>
+### Nested Schema for `permission.update`
+
+Required:
+
+- `permit` (String) Permission type for this policy. Supported values are 'allow', 'deny'.
+
+Optional:
+
+- `conditions` (Attributes List) List of conditions that must be met for this policy to apply. (see [below for nested schema](#nestedatt--permission--update--conditions))
+- `description` (String) Optional description for this policy.
+
+<a id="nestedatt--permission--update--conditions"></a>
+### Nested Schema for `permission.update.conditions`
+
+Required:
+
+- `left` (Attributes) Operand for this condition. (see [below for nested schema](#nestedatt--permission--update--conditions--left))
+- `operator` (String) Comparison operator for this condition. Supported values are 'eq', 'ne', 'in', 'nin'.
+- `right` (Attributes) Operand for this condition. (see [below for nested schema](#nestedatt--permission--update--conditions--right))
+
+<a id="nestedatt--permission--update--conditions--left"></a>
+### Nested Schema for `permission.update.conditions.left`
+
+Optional:
+
+- `new_record` (String) Reference to a new record field.
+- `old_record` (String) Reference to an old record field.
+- `record` (String) Reference to a record field.
+- `user` (String) Reference to a user field.
+- `value` (Attributes) Static value. (see [below for nested schema](#nestedatt--permission--update--conditions--left--value))
+
+<a id="nestedatt--permission--update--conditions--left--value"></a>
+### Nested Schema for `permission.update.conditions.left.value`
+
+Optional:
+
+- `boolean` (Boolean) Boolean value.
+- `boolean_array` (List of Boolean) Array of boolean values.
+- `string` (String) String value.
+- `string_array` (List of String) Array of string values.
+
+
+
+<a id="nestedatt--permission--update--conditions--right"></a>
+### Nested Schema for `permission.update.conditions.right`
+
+Optional:
+
+- `new_record` (String) Reference to a new record field.
+- `old_record` (String) Reference to an old record field.
+- `record` (String) Reference to a record field.
+- `user` (String) Reference to a user field.
+- `value` (Attributes) Static value. (see [below for nested schema](#nestedatt--permission--update--conditions--right--value))
+
+<a id="nestedatt--permission--update--conditions--right--value"></a>
+### Nested Schema for `permission.update.conditions.right.value`
+
+Optional:
+
+- `boolean` (Boolean) Boolean value.
+- `boolean_array` (List of Boolean) Array of boolean values.
+- `string` (String) String value.
+- `string_array` (List of String) Array of string values.
+
+
+
+
 
 
 <a id="nestedatt--record_permission"></a>
