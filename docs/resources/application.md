@@ -77,7 +77,7 @@ resource "tailor_application" "starwars" {
 Required:
 
 - `namespace` (String) The namespace of the subgraph.
-- `type` (String) The type of the subgraph. Can be one of 'tailordb', 'pipeline', 'stateflow', 'auth'.
+- `type` (String) The type of the subgraph. Can be one of 'tailordb', 'pipeline', 'stateflow', 'auth', 'idp'.
 
 
 <a id="nestedatt--auth"></a>

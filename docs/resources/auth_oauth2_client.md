@@ -19,6 +19,7 @@ resource "tailor_auth_oauth2_client" "c3po" {
 
   name        = "c3po"
   description = "C-3PO"
+  client_type = "confidential"
   redirect_uris = [
     "http://localhost:3000/callback",
   ]
