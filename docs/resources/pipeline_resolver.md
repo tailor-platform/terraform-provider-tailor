@@ -109,7 +109,8 @@ EOF
 Optional:
 
 - `expr` (String) The CEL expression to evaluate for authorization.
-- `insecure` (Boolean) Whether to allow unauthorized access to the pipeline resolver.
+- `insecure` (Boolean) Whether to allow unauthorized access to the pipeline resolver. This option is mutually exclusive with logged_in_user.
+- `logged_in_user` (Boolean) Whether to allow access only to logged-in users. This option is mutually exclusive with insecure.
 
 
 <a id="nestedatt--steps"></a>

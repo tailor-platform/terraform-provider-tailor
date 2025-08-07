@@ -43,4 +43,5 @@ resource "tailor_idp" "starwars_idp" {
 Optional:
 
 - `expr` (String) The CEL expression to evaluate for authorization. This option is mutually exclusive with insecure.
-- `insecure` (Boolean) Whether to allow insecure authorization for the IdP service. This option is mutually exclusive with expr.
+- `insecure` (Boolean) Whether to allow insecure authorization for the IdP service. This option is mutually exclusive with expr and logged_in_user.
+- `logged_in_user` (Boolean) Whether to allow access only to logged-in users. This option is mutually exclusive with insecure.
