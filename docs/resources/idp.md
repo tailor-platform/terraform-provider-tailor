@@ -32,6 +32,10 @@ resource "tailor_idp" "starwars_idp" {
 - `namespace` (String) The namespace name for this IdP service.
 - `workspace_id` (String) The ID of the workspace that the IdP service belongs to.
 
+### Optional
+
+- `user_auth_policy` (Attributes) The user authentication policy configuration for the IdP service. This is optional and can be omitted if the default authentication behavior is desired. (see [below for nested schema](#nestedatt--user_auth_policy))
+
 ### Read-Only
 
 - `id` (String) The unique identifier of the resource.
@@ -45,3 +49,11 @@ Optional:
 - `expr` (String) The CEL expression to evaluate for authorization. This option is mutually exclusive with insecure.
 - `insecure` (Boolean) Whether to allow insecure authorization for the IdP service. This option is mutually exclusive with expr and logged_in_user.
 - `logged_in_user` (Boolean) Whether to allow access only to logged-in users. This option is mutually exclusive with insecure.
+
+
+<a id="nestedatt--user_auth_policy"></a>
+### Nested Schema for `user_auth_policy`
+
+Optional:
+
+- `use_non_email_identifier` (Boolean) Whether to allow non-email identifiers for user authentication. When set to true, users can authenticate using identifiers other than email addresses (such as usernames). When set to false or omitted, only email addresses are accepted as user identifiers. Defaults to false.
