@@ -84,6 +84,15 @@ EOF
     }
   }
 
+  files = {
+    manual = {
+      description = "User manual document"
+    }
+    thumbnail = {
+      description = "Thumbnail image"
+    }
+  }
+
   type_permission = {
     create = [
       {
@@ -144,6 +153,7 @@ EOF
 - `description` (String) The description of this TailorDBType.
 - `directives` (Attributes List) The list of GraphQL directives for this TailorDBType. (see [below for nested schema](#nestedatt--directives))
 - `extends` (Boolean) Enable GraphQL type extension for this TailorDBType.
+- `files` (Attributes Map) (see [below for nested schema](#nestedatt--files))
 - `indexes` (Attributes Map) Define indexes for this TailorDBType. (see [below for nested schema](#nestedatt--indexes))
 - `permission` (Attributes) Define permissions for this TailorDBType. (see [below for nested schema](#nestedatt--permission))
 - `record_permission` (Attributes) Define record-level permissions for this TailorDBType. (see [below for nested schema](#nestedatt--record_permission))
@@ -345,6 +355,14 @@ Required:
 - `name` (String) The name of the argument.
 - `value` (String) The value of the argument.
 
+
+
+<a id="nestedatt--files"></a>
+### Nested Schema for `files`
+
+Optional:
+
+- `description` (String)
 
 
 <a id="nestedatt--indexes"></a>
