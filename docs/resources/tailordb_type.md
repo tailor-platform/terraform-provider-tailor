@@ -155,6 +155,7 @@ EOF
 - `extends` (Boolean) Enable GraphQL type extension for this TailorDBType.
 - `files` (Attributes Map) (see [below for nested schema](#nestedatt--files))
 - `indexes` (Attributes Map) Define indexes for this TailorDBType. (see [below for nested schema](#nestedatt--indexes))
+- `labels` (Map of String) Labels for this TailorDBType.
 - `permission` (Attributes) Define permissions for this TailorDBType. (see [below for nested schema](#nestedatt--permission))
 - `record_permission` (Attributes) Define record-level permissions for this TailorDBType. (see [below for nested schema](#nestedatt--record_permission))
 - `relationships` (Attributes Map) Relationships for this TailorDBType. (see [below for nested schema](#nestedatt--relationships))

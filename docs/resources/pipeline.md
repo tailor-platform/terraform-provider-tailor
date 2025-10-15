@@ -37,6 +37,7 @@ EOF
 ### Optional
 
 - `common_sdl` (String) The common SDL for this pipeline.
+- `labels` (Map of String) Labels for this pipeline.
 
 ### Read-Only
 

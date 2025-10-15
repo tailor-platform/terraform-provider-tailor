@@ -75,6 +75,7 @@ Optional:
 - `job_function` (Attributes) configuration for the function operation (see [below for nested schema](#nestedatt--operation--job_function))
 - `tailor_graphql` (Attributes) configuration for the graphql operation to Tailor Platform (see [below for nested schema](#nestedatt--operation--tailor_graphql))
 - `webhook` (Attributes) configuration for the webhook operation (see [below for nested schema](#nestedatt--operation--webhook))
+- `workflow` (Attributes) (see [below for nested schema](#nestedatt--operation--workflow))
 
 <a id="nestedatt--operation--function"></a>
 ### Nested Schema for `operation.function`
@@ -214,6 +215,37 @@ Required:
 
 - `secret_name` (String) The name of the secret.
 - `vault_name` (String) The name of the vault.
+
+
+
+<a id="nestedatt--operation--workflow"></a>
+### Nested Schema for `operation.workflow`
+
+Required:
+
+- `workflow_name` (String)
+
+Optional:
+
+- `invoker` (Attributes) The invoker of the operation. (see [below for nested schema](#nestedatt--operation--workflow--invoker))
+- `variables` (String)
+
+<a id="nestedatt--operation--workflow--invoker"></a>
+### Nested Schema for `operation.workflow.invoker`
+
+Optional:
+
+- `event_user` (Boolean) Attach the operation to an event user.
+- `machine_user` (Attributes) Attach the operation to a machine user. (see [below for nested schema](#nestedatt--operation--workflow--invoker--machine_user))
+
+<a id="nestedatt--operation--workflow--invoker--machine_user"></a>
+### Nested Schema for `operation.workflow.invoker.machine_user`
+
+Required:
+
+- `auth_namespace` (String) The auth namespace of the machine user.
+- `name` (String) The name of the machine user.
+
 
 
 

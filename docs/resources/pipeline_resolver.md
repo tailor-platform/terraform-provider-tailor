@@ -92,6 +92,7 @@ EOF
 ### Optional
 
 - `description` (String) The description of this pipeline resolver.
+- `labels` (Map of String) Labels for this pipeline resolver.
 - `post_hook` (String) The post-hook JavaScript code for this pipeline resolver.
 - `post_script` (String) The post-script CEL expression for this pipeline resolver.
 - `pre_hook` (String) The pre-hook JavaScript code for this pipeline resolver.
