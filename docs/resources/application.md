@@ -64,6 +64,7 @@ resource "tailor_application" "starwars" {
 - `cors` (List of String) The list of allowed origins for CORS.
 - `disable_introspection` (Boolean) Disable GraphQL introspection for the application.
 - `disabled` (Boolean) Whether the application is disabled.
+- `labels` (Map of String) Labels for this application.
 
 ### Read-Only
 

@@ -61,6 +61,7 @@ EOF
 
 - `description` (String) The description of this executor.
 - `disabled` (Boolean) Whether this executor is disabled.
+- `labels` (Map of String) Labels for this executor.
 
 ### Read-Only
 

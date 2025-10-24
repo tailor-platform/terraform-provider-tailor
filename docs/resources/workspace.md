@@ -40,6 +40,7 @@ resource "tailor_workspace" "org_workspace" {
 
 - `delete_protection` (Boolean) Whether the workspace is protected from deletion.
 - `folder_id` (String) The ID of the organization folder that the workspace belongs to.
+- `labels` (Map of String) Labels for this workspace.
 - `organization_id` (String) The ID of the organization that the workspace belongs to.
 
 ### Read-Only
