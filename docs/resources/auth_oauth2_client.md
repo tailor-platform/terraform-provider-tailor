@@ -60,6 +60,7 @@ resource "tailor_auth_oauth2_client" "k2so" {
 - `client_type` (String) The type of OAuth2 client. Can be "confidential", "public" or "browser". Defaults to "confidential" if not specified.
 - `description` (String) The description of this OAuth2 client.
 - `grant_types` (List of String) The list of grant types for this OAuth2 client.
+- `labels` (Map of String) Labels for this OAuth2 client.
 - `redirect_uris` (List of String) The list of redirect URIs for this OAuth2 client.
 
 ### Read-Only

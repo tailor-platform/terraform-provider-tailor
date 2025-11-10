@@ -24,6 +24,7 @@ The staticwebsite resource represents a static website in Tailor.
 
 - `allowed_ip_addresses` (List of String) The list of allowed IP addresses in CIDR notation.
 - `description` (String) The description of the static website.
+- `labels` (Map of String) Labels for this static website.
 
 ### Read-Only
 

@@ -76,6 +76,7 @@ resource "tailor_auth_idp_config" "saml_starwars" {
 ### Optional
 
 - `id_token_config` (Attributes) The configuration for the ID token type. (see [below for nested schema](#nestedatt--id_token_config))
+- `labels` (Map of String) Labels for this IDP configuration.
 - `oidc_config` (Attributes) The configuration for the OIDC type. (see [below for nested schema](#nestedatt--oidc_config))
 - `saml_config` (Attributes) The configuration for the SAML type. (see [below for nested schema](#nestedatt--saml_config))
 

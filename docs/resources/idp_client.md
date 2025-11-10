@@ -30,6 +30,10 @@ resource "tailor_idp_client" "default_client" {
 - `namespace` (String) The namespace name of the IdP service for this IdP client.
 - `workspace_id` (String) The ID of the workspace that the IdP client belongs to.
 
+### Optional
+
+- `labels` (Map of String) Labels for this IdP client.
+
 ### Read-Only
 
 - `client_id` (String) The computed client ID.
