@@ -23,6 +23,10 @@ The auth_scim_resource resource allows you to create and manage SCIM resources.
 - `tailordb_config` (Attributes) The TailorDB config of the SCIM resource. (see [below for nested schema](#nestedatt--tailordb_config))
 - `workspace_id` (String) The ID of the workspace that the SCIM resource belongs to.
 
+### Optional
+
+- `labels` (Map of String) Labels for this SCIM resource.
+
 ### Read-Only
 
 - `id` (String) The unique identifier of the resource.

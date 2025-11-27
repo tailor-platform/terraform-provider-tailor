@@ -22,6 +22,10 @@ The auth_scim_config resource allows you to configure the Tailor Platform and 3r
 - `namespace` (String) The auth namespace of the SCIM config.
 - `workspace_id` (String) The ID of the workspace that the SCIM config belongs to.
 
+### Optional
+
+- `labels` (Map of String) Labels for the SCIM config.
+
 ### Read-Only
 
 - `id` (String) The unique identifier of the resource.

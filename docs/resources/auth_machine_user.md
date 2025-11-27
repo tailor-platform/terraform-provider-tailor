@@ -39,6 +39,7 @@ resource "random_uuid" "r2d2_attribute" {}
 
 - `attribute_map` (Attributes Map) The map of attributes for the machine user. (see [below for nested schema](#nestedatt--attribute_map))
 - `attributes` (List of String) The list of attributes for the machine user.
+- `labels` (Map of String) Labels for the machine user.
 
 ### Read-Only
 

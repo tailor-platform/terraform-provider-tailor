@@ -37,6 +37,10 @@ resource "tailor_auth_user_profile_config" "character" {
 - `tailordb_config` (Attributes) The configuration for the TailorDB type. (see [below for nested schema](#nestedatt--tailordb_config))
 - `workspace_id` (String) The ID of the workspace that the user profile configuration belongs to.
 
+### Optional
+
+- `labels` (Map of String) Labels for this user profile configuration.
+
 ### Read-Only
 
 - `id` (String) The unique identifier of the resource.
