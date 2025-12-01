@@ -21,6 +21,10 @@ The workflow_job_function resource represents a versioned JavaScript function us
 - `script` (String) The JavaScript code for this workflow job function. Each update creates a new version.
 - `workspace_id` (String) The ID of the workspace that the workflow job function belongs to.
 
+### Optional
+
+- `labels` (Map of String) Labels for this workflow job function.
+
 ### Read-Only
 
 - `id` (String) The unique identifier of the resource.

@@ -34,6 +34,7 @@ resource "tailor_stateflow" "death_star_construction" {
 ### Optional
 
 - `admins` (List of String) The list of admins for this StateFlow.
+- `labels` (Map of String) Labels for this StateFlow.
 
 ### Read-Only
 

@@ -22,6 +22,10 @@ The workflow resource represents a workflow orchestration that executes multiple
 - `name` (String) The name of this workflow. This must be unique within the workspace.
 - `workspace_id` (String) The ID of the workspace that the workflow belongs to.
 
+### Optional
+
+- `labels` (Map of String) Labels for this workflow.
+
 ### Read-Only
 
 - `id` (String) The unique identifier of the resource.

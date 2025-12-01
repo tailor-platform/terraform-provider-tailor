@@ -22,6 +22,10 @@ The tailordb_gql_permission resource represents GraphQL permissions for a Tailor
 - `type` (String) The name of the TailorDB type to configure permissions for.
 - `workspace_id` (String) The ID of the workspace that the TailorDB type belongs to.
 
+### Optional
+
+- `labels` (Map of String) Labels for this TailorDB GQL permission.
+
 ### Read-Only
 
 - `id` (String) The unique identifier of the resource.
