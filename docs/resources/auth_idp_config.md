@@ -52,14 +52,6 @@ resource "tailor_auth_idp_config" "saml_starwars" {
 
   saml_config = {
     metadata_url = "<url>"
-    sp_cert_base64 = {
-      vault_name  = tailor_secretmanager_vault.your-vault.name
-      secret_name = tailor_secretmanager_secret.your-cert-secret.name
-    }
-    sp_key_base64 = {
-      vault_name  = tailor_secretmanager_vault.your-vault.name
-      secret_name = tailor_secretmanager_secret.your-key-secret.name
-    }
   }
 }
 ```
@@ -127,10 +119,11 @@ Required:
 
 Optional:
 
+- `enable_sign_request` (Boolean) Whether to enable signing of SAML authentication requests from Auth service to IdP
 - `metadata_url` (String) The URL of the SAML metadata.
 - `raw_metadata` (String) The raw SAML metadata.
-- `sp_cert_base64` (Attributes) The secret value to load. (see [below for nested schema](#nestedatt--saml_config--sp_cert_base64))
-- `sp_key_base64` (Attributes) The secret value to load. (see [below for nested schema](#nestedatt--saml_config--sp_key_base64))
+- `sp_cert_base64` (Attributes, Deprecated) The secret value to load. (see [below for nested schema](#nestedatt--saml_config--sp_cert_base64))
+- `sp_key_base64` (Attributes, Deprecated) The secret value to load. (see [below for nested schema](#nestedatt--saml_config--sp_key_base64))
 
 <a id="nestedatt--saml_config--sp_cert_base64"></a>
 ### Nested Schema for `saml_config.sp_cert_base64`
