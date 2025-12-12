@@ -150,7 +150,7 @@ Optional:
 Required:
 
 - `name` (String) The name of the function.
-- `script` (String) The script to execute.
+- `script` (String, Sensitive) The script to execute.
 
 Optional:
 
