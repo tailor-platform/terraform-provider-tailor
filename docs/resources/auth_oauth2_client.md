@@ -57,11 +57,13 @@ resource "tailor_auth_oauth2_client" "k2so" {
 
 ### Optional
 
+- `access_token_lifetime` (String) Optional access token lifetime as a duration string (e.g., "1h", "30m", "24h"). If not set, uses the default lifetime. Maximum allowed value is 24h (1 day).
 - `client_type` (String) The type of OAuth2 client. Can be "confidential", "public" or "browser". Defaults to "confidential" if not specified.
 - `description` (String) The description of this OAuth2 client.
 - `grant_types` (List of String) The list of grant types for this OAuth2 client.
 - `labels` (Map of String) Labels for this OAuth2 client.
 - `redirect_uris` (List of String) The list of redirect URIs for this OAuth2 client.
+- `refresh_token_lifetime` (String) Optional refresh token lifetime as a duration string (e.g., "24h", "168h", "7d" is not supported, use "168h"). If not set, uses the default lifetime. Maximum allowed value is 168h (7 days).
 
 ### Read-Only
 
