@@ -17,7 +17,7 @@ resource "tailor_idp_client" "default_client" {
   workspace_id = tailor_workspace.starwars.id
   namespace    = tailor_idp.starwars_idp.namespace
 
-  name         = "default-client"
+  name = "default-client"
 }
 ```
 

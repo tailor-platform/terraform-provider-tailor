@@ -59,4 +59,10 @@ Optional:
 Optional:
 
 - `allow_self_password_reset` (Boolean) Allow users to reset their own password via a "Forgot Password?" link on the sign-in screen.
+- `password_max_length` (Number) Maximum password length. Valid range is 6-4096. When 0 (unset), uses default value 4096.
+- `password_min_length` (Number) Minimum password length. Valid range is 6-30. When 0 (unset), uses default value 6.
+- `password_require_lowercase` (Boolean) Whether to require at least one lowercase letter in the password. Defaults to false.
+- `password_require_non_alphanumeric` (Boolean) Whether to require at least one non-alphanumeric character (special character) in the password. Defaults to false.
+- `password_require_numeric` (Boolean) Whether to require at least one numeric digit in the password. Defaults to false.
+- `password_require_uppercase` (Boolean) Whether to require at least one uppercase letter in the password. Defaults to false.
 - `use_non_email_identifier` (Boolean) Whether to allow non-email identifiers for user authentication. When set to true, users can authenticate using identifiers other than email addresses (such as usernames). When set to false or omitted, only email addresses are accepted as user identifiers. Defaults to false.
