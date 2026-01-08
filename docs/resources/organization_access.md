@@ -3,20 +3,35 @@
 page_title: "tailor_organization_access Resource - terraform-provider-tailor"
 subcategory: ""
 description: |-
-  The organization access resource allows you to manage the access of an organization to a team or a user.
+  The organization access resource allows you to manage the access of an organization to a team, user, or machine user.
 ---
 
 # tailor_organization_access (Resource)
 
-The organization access resource allows you to manage the access of an organization to a team or a user.
+The organization access resource allows you to manage the access of an organization to a team, user, or machine user.
 
 ## Example Usage
 
 ```terraform
-resource "tailor_organization_access" "galactic_empire_the_501st_legion" {
-  organization_id = data.tailor_organization.galactic_empire.id
+# Grant access to a team
+resource "tailor_organization_access" "example_team_access" {
+  organization_id = data.tailor_organization.example_org.id
   role            = "viewer"
-  team_id         = tailor_organization_team.the_501st_legion.id
+  team_id         = tailor_organization_team.example_team.id
+}
+
+# Grant access to a user
+resource "tailor_organization_access" "example_user_access" {
+  organization_id = data.tailor_organization.example_org.id
+  role            = "editor"
+  email           = "user@example.com"
+}
+
+# Grant access to a machine user
+resource "tailor_organization_access" "example_machine_user_access" {
+  organization_id = data.tailor_organization.example_org.id
+  role            = "admin"
+  machine_user_id = tailor_platform_machine_user.org_bot.id
 }
 ```
 
@@ -26,9 +41,10 @@ resource "tailor_organization_access" "galactic_empire_the_501st_legion" {
 ### Required
 
 - `organization_id` (String) The ID of the organization.
-- `role` (String) The role of the organization in the team or user. Allowed values are `admin` `editor`, and `viewer`.
+- `role` (String) The role of the organization access. Allowed values are `admin`, `editor`, and `viewer`.
 
 ### Optional
 
-- `email` (String) The email of the user.
-- `team_id` (String) The ID of the team.
+- `email` (String) The email of the user. Exactly one of `team_id`, `email`, or `machine_user_id` must be specified.
+- `machine_user_id` (String) The ID of the machine user. Exactly one of `team_id`, `email`, or `machine_user_id` must be specified.
+- `team_id` (String) The ID of the team. Exactly one of `team_id`, `email`, or `machine_user_id` must be specified.

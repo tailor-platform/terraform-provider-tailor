@@ -3,21 +3,38 @@
 page_title: "tailor_organization_folder_access Resource - terraform-provider-tailor"
 subcategory: ""
 description: |-
-  The organization folder access resource allows you to manage the access of folders in an organization to a team or a user.
+  The organization folder access resource allows you to manage the access of folders in an organization to a team, user, or machine user.
 ---
 
 # tailor_organization_folder_access (Resource)
 
-The organization folder access resource allows you to manage the access of folders in an organization to a team or a user.
+The organization folder access resource allows you to manage the access of folders in an organization to a team, user, or machine user.
 
 ## Example Usage
 
 ```terraform
-resource "tailor_organization_folder_access" "hoth_the_501st_legion" {
-  organization_id = data.tailor_organization.galactic_empire.id
-  folder_id       = tailor_organization_folder.hoth.id
+# Grant folder access to a team
+resource "tailor_organization_folder_access" "example_team_folder_access" {
+  organization_id = data.tailor_organization.example_org.id
+  folder_id       = tailor_organization_folder.example_folder.id
   role            = "editor"
-  team_id         = tailor_organization_team.the_501st_legion.id
+  team_id         = tailor_organization_team.example_team.id
+}
+
+# Grant folder access to a user
+resource "tailor_organization_folder_access" "example_user_folder_access" {
+  organization_id = data.tailor_organization.example_org.id
+  folder_id       = tailor_organization_folder.example_folder.id
+  role            = "viewer"
+  email           = "user@example.com"
+}
+
+# Grant folder access to a machine user
+resource "tailor_organization_folder_access" "example_machine_user_folder_access" {
+  organization_id = data.tailor_organization.example_org.id
+  folder_id       = tailor_organization_folder.example_folder.id
+  role            = "admin"
+  machine_user_id = tailor_platform_machine_user.folder_bot.id
 }
 ```
 
@@ -28,9 +45,10 @@ resource "tailor_organization_folder_access" "hoth_the_501st_legion" {
 
 - `folder_id` (String) The ID of the folder.
 - `organization_id` (String) The ID of the organization.
-- `role` (String) The role of the organization in the team or user. Allowed values are `admin` `editor`, and `viewer`.
+- `role` (String) The role of the folder access. Allowed values are `admin`, `editor`, and `viewer`.
 
 ### Optional
 
-- `email` (String) The email of the user.
-- `team_id` (String) The ID of the team.
+- `email` (String) The email of the user. Exactly one of `team_id`, `email`, or `machine_user_id` must be specified.
+- `machine_user_id` (String) The ID of the machine user. Exactly one of `team_id`, `email`, or `machine_user_id` must be specified.
+- `team_id` (String) The ID of the team. Exactly one of `team_id`, `email`, or `machine_user_id` must be specified.
