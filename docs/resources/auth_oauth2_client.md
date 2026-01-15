@@ -64,6 +64,7 @@ resource "tailor_auth_oauth2_client" "k2so" {
 - `labels` (Map of String) Labels for this OAuth2 client.
 - `redirect_uris` (List of String) The list of redirect URIs for this OAuth2 client.
 - `refresh_token_lifetime` (String) Optional refresh token lifetime as a duration string (e.g., "24h", "168h", "7d" is not supported, use "168h"). If not set, uses the default lifetime. Maximum allowed value is 168h (7 days).
+- `require_dpop` (Boolean) When true, DPoP proof is required for token requests. Cannot be set to true for browser clients as they don't support DPoP.
 
 ### Read-Only
 

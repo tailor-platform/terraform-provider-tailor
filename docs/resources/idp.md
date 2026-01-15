@@ -18,7 +18,7 @@ resource "tailor_idp" "starwars_idp" {
   namespace    = "starwars-idp"
 
   authorization = {
-    insecure = true
+    expr = "user.role == 'admin'"
   }
 }
 ```
