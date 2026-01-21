@@ -14,8 +14,9 @@ The auth resource represents an auth namespace in Tailor.
 
 ```terraform
 resource "tailor_auth" "starwars_auth" {
-  workspace_id = tailor_workspace.starwars.id
-  namespace    = "starwars-auth"
+  workspace_id           = tailor_workspace.starwars.id
+  namespace              = "starwars-auth"
+  publish_session_events = true
 }
 ```
 
@@ -30,6 +31,7 @@ resource "tailor_auth" "starwars_auth" {
 ### Optional
 
 - `labels` (Map of String) Labels for this auth service.
+- `publish_session_events` (Boolean) Enable publishing session lifecycle events (issued, revoked, refreshed). When enabled, events are published to the dataplane event topic.
 
 ### Read-Only
 
