@@ -36,6 +36,7 @@ resource "tailor_idp" "starwars_idp" {
 
 - `labels` (Map of String) Labels for this IdP service.
 - `lang` (String) Language subtag (IETF BCP 47). Allowed values: `en`, `ja`. Default: `en`.
+- `publish_user_events` (Boolean) Enable publishing user lifecycle events (created, updated, deleted). Default: `false`.
 - `user_auth_policy` (Attributes) The user authentication policy configuration for the IdP service. This is optional and can be omitted if the default authentication behavior is desired. (see [below for nested schema](#nestedatt--user_auth_policy))
 
 ### Read-Only
