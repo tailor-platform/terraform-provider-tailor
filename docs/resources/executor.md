@@ -84,11 +84,12 @@ Optional:
 Required:
 
 - `name` (String) The name of the function.
-- `script` (String, Sensitive) The script to execute.
 
 Optional:
 
 - `invoker` (Attributes) The invoker of the operation. (see [below for nested schema](#nestedatt--operation--function--invoker))
+- `script` (String, Sensitive) The script to execute.
+- `script_ref` (String) Reference to a function in the function registry. Mutually exclusive with `script`.
 - `variables` (String) The variables to pass to the function.
 
 <a id="nestedatt--operation--function--invoker"></a>
@@ -116,11 +117,12 @@ Required:
 Required:
 
 - `name` (String) The name of the function.
-- `script` (String, Sensitive) The script to execute.
 
 Optional:
 
 - `invoker` (Attributes) The invoker of the operation. (see [below for nested schema](#nestedatt--operation--job_function--invoker))
+- `script` (String, Sensitive) The script to execute.
+- `script_ref` (String) Reference to a function in the function registry. Mutually exclusive with `script`.
 - `variables` (String) The variables to pass to the function.
 
 <a id="nestedatt--operation--job_function--invoker"></a>
