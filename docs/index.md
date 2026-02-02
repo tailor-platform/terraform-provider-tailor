@@ -19,3 +19,13 @@ Please refer to the [Tailor Platform documentation](https://docs.tailor.tech/) f
 ### Optional
 
 - `pat` (String, Sensitive) The Personal Access Token (PAT) for the Tailor Platform API. This is used to authenticate with the Tailor Platform API.
+- `platform_machine_user` (Attributes) OAuth2 Client Credentials for Platform Machine User authentication. When configured, this takes precedence over PAT authentication.
+Use this for machine-to-machine authentication in CI/CD pipelines and automation scenarios. (see [below for nested schema](#nestedatt--platform_machine_user))
+
+<a id="nestedatt--platform_machine_user"></a>
+### Nested Schema for `platform_machine_user`
+
+Required:
+
+- `client_id` (String) The OAuth2 Client ID for the Platform Machine User. This is typically in the format "cpmu_xxx".
+- `client_secret` (String, Sensitive) The OAuth2 Client Secret for the Platform Machine User. This value is sensitive and should be stored securely.
