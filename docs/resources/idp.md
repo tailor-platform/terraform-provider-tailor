@@ -60,6 +60,7 @@ Optional:
 Optional:
 
 - `allow_self_password_reset` (Boolean) Allow users to reset their own password via a "Forgot Password?" link on the sign-in screen.
+- `allowed_email_domains` (List of String) List of allowed email domains for user authentication (e.g., ["example.com", "corp.example.com"]). When set, only users with email addresses from these domains can authenticate. An empty list means all domains are allowed (backward compatible). When use_non_email_identifier is true, this list must be empty.
 - `password_max_length` (Number) Maximum password length. Valid range is 6-4096. When 0 (unset), uses default value 4096.
 - `password_min_length` (Number) Minimum password length. Valid range is 6-30. When 0 (unset), uses default value 6.
 - `password_require_lowercase` (Boolean) Whether to require at least one lowercase letter in the password. Defaults to false.
