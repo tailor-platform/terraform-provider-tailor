@@ -406,7 +406,7 @@ Optional:
 Required:
 
 - `left` (Attributes) Operand for this condition. (see [below for nested schema](#nestedatt--permission--create--conditions--left))
-- `operator` (String) Comparison operator for this condition. Supported values are 'eq', 'ne', 'in', 'nin'.
+- `operator` (String) Comparison operator for this condition. Supported values are 'eq', 'ne', 'in', 'nin', 'hasAny', 'nhasAny'.
 - `right` (Attributes) Operand for this condition. (see [below for nested schema](#nestedatt--permission--create--conditions--right))
 
 <a id="nestedatt--permission--create--conditions--left"></a>
@@ -475,7 +475,7 @@ Optional:
 Required:
 
 - `left` (Attributes) Operand for this condition. (see [below for nested schema](#nestedatt--permission--delete--conditions--left))
-- `operator` (String) Comparison operator for this condition. Supported values are 'eq', 'ne', 'in', 'nin'.
+- `operator` (String) Comparison operator for this condition. Supported values are 'eq', 'ne', 'in', 'nin', 'hasAny', 'nhasAny'.
 - `right` (Attributes) Operand for this condition. (see [below for nested schema](#nestedatt--permission--delete--conditions--right))
 
 <a id="nestedatt--permission--delete--conditions--left"></a>
@@ -544,7 +544,7 @@ Optional:
 Required:
 
 - `left` (Attributes) Operand for this condition. (see [below for nested schema](#nestedatt--permission--read--conditions--left))
-- `operator` (String) Comparison operator for this condition. Supported values are 'eq', 'ne', 'in', 'nin'.
+- `operator` (String) Comparison operator for this condition. Supported values are 'eq', 'ne', 'in', 'nin', 'hasAny', 'nhasAny'.
 - `right` (Attributes) Operand for this condition. (see [below for nested schema](#nestedatt--permission--read--conditions--right))
 
 <a id="nestedatt--permission--read--conditions--left"></a>
@@ -613,7 +613,7 @@ Optional:
 Required:
 
 - `left` (Attributes) Operand for this condition. (see [below for nested schema](#nestedatt--permission--update--conditions--left))
-- `operator` (String) Comparison operator for this condition. Supported values are 'eq', 'ne', 'in', 'nin'.
+- `operator` (String) Comparison operator for this condition. Supported values are 'eq', 'ne', 'in', 'nin', 'hasAny', 'nhasAny'.
 - `right` (Attributes) Operand for this condition. (see [below for nested schema](#nestedatt--permission--update--conditions--right))
 
 <a id="nestedatt--permission--update--conditions--left"></a>

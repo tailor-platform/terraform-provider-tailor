@@ -49,7 +49,7 @@ Optional:
 Required:
 
 - `left` (Attributes) Operand for this condition. (see [below for nested schema](#nestedatt--policies--conditions--left))
-- `operator` (String) Comparison operator for this condition. Supported values are 'eq', 'ne', 'in', 'nin'.
+- `operator` (String) Comparison operator for this condition. Supported values are 'eq', 'ne', 'in', 'nin', 'hasAny', 'nhasAny'.
 - `right` (Attributes) Operand for this condition. (see [below for nested schema](#nestedatt--policies--conditions--right))
 
 <a id="nestedatt--policies--conditions--left"></a>
