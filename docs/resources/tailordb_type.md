@@ -183,6 +183,7 @@ Optional:
 - `hooks` (Attributes) Hooks settings. (see [below for nested schema](#nestedatt--fields--hooks))
 - `index` (Boolean) Whether the field is indexed.
 - `required` (Boolean) Whether the field is required.
+- `scale` (Number)
 - `serial` (Attributes) (see [below for nested schema](#nestedatt--fields--serial))
 - `source` (String) The source of the field.
 - `unique` (Boolean) Whether the field is unique.
@@ -217,6 +218,7 @@ Optional:
 - `hooks` (Attributes) Hooks settings. (see [below for nested schema](#nestedatt--fields--fields--hooks))
 - `index` (Boolean) Whether the field is indexed.
 - `required` (Boolean) Whether the field is required.
+- `scale` (Number)
 - `serial` (Attributes) (see [below for nested schema](#nestedatt--fields--fields--serial))
 - `source` (String) The source of the field.
 - `unique` (Boolean) Whether the field is unique.
