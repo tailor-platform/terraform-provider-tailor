@@ -34,6 +34,7 @@ resource "tailor_idp" "starwars_idp" {
 
 ### Optional
 
+- `disable_gql_operations` (Attributes) Controls which GraphQL operations are disabled for this IdP service. (see [below for nested schema](#nestedatt--disable_gql_operations))
 - `labels` (Map of String) Labels for this IdP service.
 - `lang` (String) Language subtag (IETF BCP 47). Allowed values: `en`, `ja`. Default: `en`.
 - `publish_user_events` (Boolean) Enable publishing user lifecycle events (created, updated, deleted). Default: `false`.
@@ -54,15 +55,28 @@ Optional:
 - `logged_in_user` (Boolean, Deprecated) **Deprecated.** Whether to allow access only to logged-in users. This option is mutually exclusive with insecure. All IdP dataplane operations now implicitly require authentication. Use 'expr' with a custom CEL expression instead, or omit the authorization block.
 
 
+<a id="nestedatt--disable_gql_operations"></a>
+### Nested Schema for `disable_gql_operations`
+
+Optional:
+
+- `create` (Boolean) Disable the `_createUser` mutation.
+- `delete` (Boolean) Disable the `_deleteUser` mutation.
+- `read` (Boolean) Disable the `_user` and `_users` queries.
+- `send_password_reset_email` (Boolean) Disable the `_sendPasswordResetEmail` mutation.
+- `update` (Boolean) Disable the `_updateUser` mutation.
+
+
 <a id="nestedatt--user_auth_policy"></a>
 ### Nested Schema for `user_auth_policy`
 
 Optional:
 
 - `allow_google_oauth` (Boolean) Whether to enable "Sign in with Google" for this namespace. When enabled, users can authenticate using their Google account. Cannot be enabled when use_non_email_identifier is true. Requires allowed_email_domains to be set. Defaults to false.
+- `allow_microsoft_oauth` (Boolean) Whether to enable "Sign in with Microsoft" for this namespace. When enabled, users can authenticate using their Microsoft account. Cannot be enabled when use_non_email_identifier is true. Requires allowed_email_domains to be set and disable_password_auth to be true. Defaults to false.
 - `allow_self_password_reset` (Boolean) Allow users to reset their own password via a "Forgot Password?" link on the sign-in screen.
 - `allowed_email_domains` (List of String) List of allowed email domains for user authentication (e.g., ["example.com", "corp.example.com"]). When set, only users with email addresses from these domains can authenticate. An empty list means all domains are allowed (backward compatible). When use_non_email_identifier is true, this list must be empty.
-- `disable_password_auth` (Boolean) Whether to disable password-based authentication for this namespace. When enabled, users can only authenticate via Google OAuth (requires allow_google_oauth to be true). Cannot be enabled when allow_self_password_reset is true. Defaults to false.
+- `disable_password_auth` (Boolean) Whether to disable password-based authentication for this namespace. When enabled, users can only authenticate via OAuth (requires allow_google_oauth or allow_microsoft_oauth to be true). Cannot be enabled when allow_self_password_reset is true. Defaults to false.
 - `password_max_length` (Number) Maximum password length. Valid range is 6-4096. When 0 (unset), uses default value 4096.
 - `password_min_length` (Number) Minimum password length. Valid range is 6-30. When 0 (unset), uses default value 6.
 - `password_require_lowercase` (Boolean) Whether to require at least one lowercase letter in the password. Defaults to false.
