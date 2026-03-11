@@ -25,7 +25,21 @@ The workflow resource represents a workflow orchestration that executes multiple
 ### Optional
 
 - `labels` (Map of String) Labels for this workflow.
+- `retry_policy` (Attributes) (see [below for nested schema](#nestedatt--retry_policy))
 
 ### Read-Only
 
 - `id` (String) The unique identifier of the resource.
+
+<a id="nestedatt--retry_policy"></a>
+### Nested Schema for `retry_policy`
+
+Required:
+
+- `initial_backoff` (String)
+- `max_backoff` (String)
+- `max_retries` (Number)
+
+Optional:
+
+- `backoff_multiplier` (Number)
