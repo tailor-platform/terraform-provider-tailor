@@ -36,10 +36,7 @@ The workflow resource represents a workflow orchestration that executes multiple
 
 Required:
 
+- `backoff_multiplier` (Number)
 - `initial_backoff` (String)
 - `max_backoff` (String)
 - `max_retries` (Number)
-
-Optional:
-
-- `backoff_multiplier` (Number)
