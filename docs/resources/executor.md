@@ -265,20 +265,68 @@ Optional:
 <a id="nestedatt--trigger--event"></a>
 ### Nested Schema for `trigger.event`
 
+Optional:
+
+- `auth` (Attributes) Auth event configuration (see [below for nested schema](#nestedatt--trigger--event--auth))
+- `condition` (String, Deprecated) **Deprecated**: use one of the typed config blocks instead (tailordb, idp, auth, pipeline). JavaScript condition for legacy config.
+- `idp` (Attributes) IdP event configuration (see [below for nested schema](#nestedatt--trigger--event--idp))
+- `pipeline` (Attributes) Pipeline event configuration with pre-filtering by resolver_name (see [below for nested schema](#nestedatt--trigger--event--pipeline))
+- `tailordb` (Attributes) TailorDB event configuration with pre-filtering by type_name (see [below for nested schema](#nestedatt--trigger--event--tailordb))
+- `type` (String, Deprecated) **Deprecated**: use one of the typed config blocks instead (tailordb, idp, auth, pipeline). Event type string for legacy config.
+
+<a id="nestedatt--trigger--event--auth"></a>
+### Nested Schema for `trigger.event.auth`
+
 Required:
 
-- `type` (String) Available event types:
-  - `tailordb.type_record.created`
-  - `tailordb.type_record.updated`
-  - `tailordb.type_record.deleted`
-  - `stateflow.state.created`
-  - `stateflow.state.transitioned`
-  - `pipeline.resolver.executed`
-see our [documentation](https://docs.tailor.tech) for more information.
+- `event_types` (List of String) Event types to trigger on (e.g., ["auth.access_token.issued"])
+- `namespace_name` (String) Namespace name to filter events
 
 Optional:
 
-- `condition` (String) The condition for the event trigger.
+- `condition` (String) JavaScript condition to evaluate
+
+
+<a id="nestedatt--trigger--event--idp"></a>
+### Nested Schema for `trigger.event.idp`
+
+Required:
+
+- `event_types` (List of String) Event types to trigger on (e.g., ["idp.user.created", "idp.user.updated"])
+- `namespace_name` (String) Namespace name to filter events
+
+Optional:
+
+- `condition` (String) JavaScript condition to evaluate
+
+
+<a id="nestedatt--trigger--event--pipeline"></a>
+### Nested Schema for `trigger.event.pipeline`
+
+Required:
+
+- `event_types` (List of String) Event types to trigger on (e.g., ["pipeline.resolver.executed"])
+- `namespace_name` (String) Namespace name to filter events
+- `resolver_name` (String) Resolver name to filter events
+
+Optional:
+
+- `condition` (String) JavaScript condition to evaluate
+
+
+<a id="nestedatt--trigger--event--tailordb"></a>
+### Nested Schema for `trigger.event.tailordb`
+
+Required:
+
+- `event_types` (List of String) Event types to trigger on (e.g., ["tailordb.type_record.created", "tailordb.type_record.updated"])
+- `namespace_name` (String) Namespace name to filter events
+- `type_name` (String) TailorDB type name to filter events
+
+Optional:
+
+- `condition` (String) JavaScript condition to evaluate
+
 
 
 <a id="nestedatt--trigger--schedule"></a>
