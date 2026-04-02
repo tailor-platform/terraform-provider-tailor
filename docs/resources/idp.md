@@ -35,6 +35,7 @@ resource "tailor_idp" "starwars_idp" {
 ### Optional
 
 - `disable_gql_operations` (Attributes) Controls which GraphQL operations are disabled for this IdP service. (see [below for nested schema](#nestedatt--disable_gql_operations))
+- `email_config` (Attributes) Email configuration defaults for this IdP namespace. (see [below for nested schema](#nestedatt--email_config))
 - `labels` (Map of String) Labels for this IdP service.
 - `lang` (String) Language subtag (IETF BCP 47). Allowed values: `en`, `ja`. Default: `en`.
 - `publish_user_events` (Boolean) Enable publishing user lifecycle events (created, updated, deleted). Default: `false`.
@@ -65,6 +66,15 @@ Optional:
 - `read` (Boolean) Disable the `_user` and `_users` queries.
 - `send_password_reset_email` (Boolean) Disable the `_sendPasswordResetEmail` mutation.
 - `update` (Boolean) Disable the `_updateUser` mutation.
+
+
+<a id="nestedatt--email_config"></a>
+### Nested Schema for `email_config`
+
+Optional:
+
+- `from_name` (String) Default sender display name for emails. Empty means use mailer default.
+- `password_reset_subject` (String) Default subject for password reset emails. Empty means use localized default.
 
 
 <a id="nestedatt--user_auth_policy"></a>
