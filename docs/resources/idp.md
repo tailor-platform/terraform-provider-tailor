@@ -28,16 +28,17 @@ resource "tailor_idp" "starwars_idp" {
 
 ### Required
 
-- `authorization` (Attributes) The authorization configuration for the IdP service. (see [below for nested schema](#nestedatt--authorization))
 - `namespace` (String) The namespace name for this IdP service.
 - `workspace_id` (String) The ID of the workspace that the IdP service belongs to.
 
 ### Optional
 
+- `authorization` (Attributes) The authorization configuration for the IdP service. (see [below for nested schema](#nestedatt--authorization))
 - `disable_gql_operations` (Attributes) Controls which GraphQL operations are disabled for this IdP service. (see [below for nested schema](#nestedatt--disable_gql_operations))
 - `email_config` (Attributes) Email configuration defaults for this IdP namespace. (see [below for nested schema](#nestedatt--email_config))
 - `labels` (Map of String) Labels for this IdP service.
 - `lang` (String) Language subtag (IETF BCP 47). Allowed values: `en`, `ja`. Default: `en`.
+- `permission` (Attributes) Per-operation permission policies for this IdP namespace. (see [below for nested schema](#nestedatt--permission))
 - `publish_user_events` (Boolean) Enable publishing user lifecycle events (created, updated, deleted). Default: `false`.
 - `user_auth_policy` (Attributes) The user authentication policy configuration for the IdP service. This is optional and can be omitted if the default authentication behavior is desired. (see [below for nested schema](#nestedatt--user_auth_policy))
 
@@ -75,6 +76,253 @@ Optional:
 
 - `from_name` (String) Default sender display name for emails. Empty means use mailer default.
 - `password_reset_subject` (String) Default subject for password reset emails. Empty means use localized default.
+
+
+<a id="nestedatt--permission"></a>
+### Nested Schema for `permission`
+
+Optional:
+
+- `create` (Attributes List) Policies for the create operation. (see [below for nested schema](#nestedatt--permission--create))
+- `delete` (Attributes List) Policies for the delete operation. (see [below for nested schema](#nestedatt--permission--delete))
+- `read` (Attributes List) Policies for the read operation. (see [below for nested schema](#nestedatt--permission--read))
+- `send_password_reset_email` (Attributes List) Policies for the send_password_reset_email operation. (see [below for nested schema](#nestedatt--permission--send_password_reset_email))
+- `update` (Attributes List) Policies for the update operation. (see [below for nested schema](#nestedatt--permission--update))
+
+<a id="nestedatt--permission--create"></a>
+### Nested Schema for `permission.create`
+
+Required:
+
+- `permit` (String) Whether to allow or deny the operation.
+
+Optional:
+
+- `conditions` (Attributes List) Conditions that must all be true for this policy to apply. (see [below for nested schema](#nestedatt--permission--create--conditions))
+- `description` (String) Optional description of this policy.
+
+<a id="nestedatt--permission--create--conditions"></a>
+### Nested Schema for `permission.create.conditions`
+
+Required:
+
+- `left` (Attributes) An operand for a permission condition. Exactly one field must be set. (see [below for nested schema](#nestedatt--permission--create--conditions--left))
+- `operator` (String) Comparison operator. Must be "eq", "ne", "in", or "nin".
+- `right` (Attributes) An operand for a permission condition. Exactly one field must be set. (see [below for nested schema](#nestedatt--permission--create--conditions--right))
+
+<a id="nestedatt--permission--create--conditions--left"></a>
+### Nested Schema for `permission.create.conditions.left`
+
+Optional:
+
+- `idp_user_field` (String) A field from the IdP user record (e.g., "_id", "_name", "_disabled").
+- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
+- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
+- `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
+- `value` (String) A literal value (JSON-encoded).
+
+
+<a id="nestedatt--permission--create--conditions--right"></a>
+### Nested Schema for `permission.create.conditions.right`
+
+Optional:
+
+- `idp_user_field` (String) A field from the IdP user record (e.g., "_id", "_name", "_disabled").
+- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
+- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
+- `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
+- `value` (String) A literal value (JSON-encoded).
+
+
+
+
+<a id="nestedatt--permission--delete"></a>
+### Nested Schema for `permission.delete`
+
+Required:
+
+- `permit` (String) Whether to allow or deny the operation.
+
+Optional:
+
+- `conditions` (Attributes List) Conditions that must all be true for this policy to apply. (see [below for nested schema](#nestedatt--permission--delete--conditions))
+- `description` (String) Optional description of this policy.
+
+<a id="nestedatt--permission--delete--conditions"></a>
+### Nested Schema for `permission.delete.conditions`
+
+Required:
+
+- `left` (Attributes) An operand for a permission condition. Exactly one field must be set. (see [below for nested schema](#nestedatt--permission--delete--conditions--left))
+- `operator` (String) Comparison operator. Must be "eq", "ne", "in", or "nin".
+- `right` (Attributes) An operand for a permission condition. Exactly one field must be set. (see [below for nested schema](#nestedatt--permission--delete--conditions--right))
+
+<a id="nestedatt--permission--delete--conditions--left"></a>
+### Nested Schema for `permission.delete.conditions.left`
+
+Optional:
+
+- `idp_user_field` (String) A field from the IdP user record (e.g., "_id", "_name", "_disabled").
+- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
+- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
+- `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
+- `value` (String) A literal value (JSON-encoded).
+
+
+<a id="nestedatt--permission--delete--conditions--right"></a>
+### Nested Schema for `permission.delete.conditions.right`
+
+Optional:
+
+- `idp_user_field` (String) A field from the IdP user record (e.g., "_id", "_name", "_disabled").
+- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
+- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
+- `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
+- `value` (String) A literal value (JSON-encoded).
+
+
+
+
+<a id="nestedatt--permission--read"></a>
+### Nested Schema for `permission.read`
+
+Required:
+
+- `permit` (String) Whether to allow or deny the operation.
+
+Optional:
+
+- `conditions` (Attributes List) Conditions that must all be true for this policy to apply. (see [below for nested schema](#nestedatt--permission--read--conditions))
+- `description` (String) Optional description of this policy.
+
+<a id="nestedatt--permission--read--conditions"></a>
+### Nested Schema for `permission.read.conditions`
+
+Required:
+
+- `left` (Attributes) An operand for a permission condition. Exactly one field must be set. (see [below for nested schema](#nestedatt--permission--read--conditions--left))
+- `operator` (String) Comparison operator. Must be "eq", "ne", "in", or "nin".
+- `right` (Attributes) An operand for a permission condition. Exactly one field must be set. (see [below for nested schema](#nestedatt--permission--read--conditions--right))
+
+<a id="nestedatt--permission--read--conditions--left"></a>
+### Nested Schema for `permission.read.conditions.left`
+
+Optional:
+
+- `idp_user_field` (String) A field from the IdP user record (e.g., "_id", "_name", "_disabled").
+- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
+- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
+- `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
+- `value` (String) A literal value (JSON-encoded).
+
+
+<a id="nestedatt--permission--read--conditions--right"></a>
+### Nested Schema for `permission.read.conditions.right`
+
+Optional:
+
+- `idp_user_field` (String) A field from the IdP user record (e.g., "_id", "_name", "_disabled").
+- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
+- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
+- `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
+- `value` (String) A literal value (JSON-encoded).
+
+
+
+
+<a id="nestedatt--permission--send_password_reset_email"></a>
+### Nested Schema for `permission.send_password_reset_email`
+
+Required:
+
+- `permit` (String) Whether to allow or deny the operation.
+
+Optional:
+
+- `conditions` (Attributes List) Conditions that must all be true for this policy to apply. (see [below for nested schema](#nestedatt--permission--send_password_reset_email--conditions))
+- `description` (String) Optional description of this policy.
+
+<a id="nestedatt--permission--send_password_reset_email--conditions"></a>
+### Nested Schema for `permission.send_password_reset_email.conditions`
+
+Required:
+
+- `left` (Attributes) An operand for a permission condition. Exactly one field must be set. (see [below for nested schema](#nestedatt--permission--send_password_reset_email--conditions--left))
+- `operator` (String) Comparison operator. Must be "eq", "ne", "in", or "nin".
+- `right` (Attributes) An operand for a permission condition. Exactly one field must be set. (see [below for nested schema](#nestedatt--permission--send_password_reset_email--conditions--right))
+
+<a id="nestedatt--permission--send_password_reset_email--conditions--left"></a>
+### Nested Schema for `permission.send_password_reset_email.conditions.left`
+
+Optional:
+
+- `idp_user_field` (String) A field from the IdP user record (e.g., "_id", "_name", "_disabled").
+- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
+- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
+- `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
+- `value` (String) A literal value (JSON-encoded).
+
+
+<a id="nestedatt--permission--send_password_reset_email--conditions--right"></a>
+### Nested Schema for `permission.send_password_reset_email.conditions.right`
+
+Optional:
+
+- `idp_user_field` (String) A field from the IdP user record (e.g., "_id", "_name", "_disabled").
+- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
+- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
+- `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
+- `value` (String) A literal value (JSON-encoded).
+
+
+
+
+<a id="nestedatt--permission--update"></a>
+### Nested Schema for `permission.update`
+
+Required:
+
+- `permit` (String) Whether to allow or deny the operation.
+
+Optional:
+
+- `conditions` (Attributes List) Conditions that must all be true for this policy to apply. (see [below for nested schema](#nestedatt--permission--update--conditions))
+- `description` (String) Optional description of this policy.
+
+<a id="nestedatt--permission--update--conditions"></a>
+### Nested Schema for `permission.update.conditions`
+
+Required:
+
+- `left` (Attributes) An operand for a permission condition. Exactly one field must be set. (see [below for nested schema](#nestedatt--permission--update--conditions--left))
+- `operator` (String) Comparison operator. Must be "eq", "ne", "in", or "nin".
+- `right` (Attributes) An operand for a permission condition. Exactly one field must be set. (see [below for nested schema](#nestedatt--permission--update--conditions--right))
+
+<a id="nestedatt--permission--update--conditions--left"></a>
+### Nested Schema for `permission.update.conditions.left`
+
+Optional:
+
+- `idp_user_field` (String) A field from the IdP user record (e.g., "_id", "_name", "_disabled").
+- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
+- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
+- `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
+- `value` (String) A literal value (JSON-encoded).
+
+
+<a id="nestedatt--permission--update--conditions--right"></a>
+### Nested Schema for `permission.update.conditions.right`
+
+Optional:
+
+- `idp_user_field` (String) A field from the IdP user record (e.g., "_id", "_name", "_disabled").
+- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
+- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
+- `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
+- `value` (String) A literal value (JSON-encoded).
+
+
+
 
 
 <a id="nestedatt--user_auth_policy"></a>
