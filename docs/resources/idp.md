@@ -119,7 +119,18 @@ Optional:
 - `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
 - `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
 - `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
-- `value` (String) A literal value (JSON-encoded).
+- `value` (Attributes) A literal value. Exactly one of string, string_array, boolean, or boolean_array must be set. (see [below for nested schema](#nestedatt--permission--create--conditions--left--value))
+
+<a id="nestedatt--permission--create--conditions--left--value"></a>
+### Nested Schema for `permission.create.conditions.left.value`
+
+Optional:
+
+- `boolean` (Boolean) A boolean value.
+- `boolean_array` (List of Boolean) A list of boolean values.
+- `string` (String) A string value.
+- `string_array` (List of String) A list of string values.
+
 
 
 <a id="nestedatt--permission--create--conditions--right"></a>
@@ -131,7 +142,18 @@ Optional:
 - `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
 - `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
 - `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
-- `value` (String) A literal value (JSON-encoded).
+- `value` (Attributes) A literal value. Exactly one of string, string_array, boolean, or boolean_array must be set. (see [below for nested schema](#nestedatt--permission--create--conditions--right--value))
+
+<a id="nestedatt--permission--create--conditions--right--value"></a>
+### Nested Schema for `permission.create.conditions.right.value`
+
+Optional:
+
+- `boolean` (Boolean) A boolean value.
+- `boolean_array` (List of Boolean) A list of boolean values.
+- `string` (String) A string value.
+- `string_array` (List of String) A list of string values.
+
 
 
 
@@ -166,7 +188,18 @@ Optional:
 - `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
 - `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
 - `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
-- `value` (String) A literal value (JSON-encoded).
+- `value` (Attributes) A literal value. Exactly one of string, string_array, boolean, or boolean_array must be set. (see [below for nested schema](#nestedatt--permission--delete--conditions--left--value))
+
+<a id="nestedatt--permission--delete--conditions--left--value"></a>
+### Nested Schema for `permission.delete.conditions.left.value`
+
+Optional:
+
+- `boolean` (Boolean) A boolean value.
+- `boolean_array` (List of Boolean) A list of boolean values.
+- `string` (String) A string value.
+- `string_array` (List of String) A list of string values.
+
 
 
 <a id="nestedatt--permission--delete--conditions--right"></a>
@@ -178,7 +211,18 @@ Optional:
 - `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
 - `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
 - `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
-- `value` (String) A literal value (JSON-encoded).
+- `value` (Attributes) A literal value. Exactly one of string, string_array, boolean, or boolean_array must be set. (see [below for nested schema](#nestedatt--permission--delete--conditions--right--value))
+
+<a id="nestedatt--permission--delete--conditions--right--value"></a>
+### Nested Schema for `permission.delete.conditions.right.value`
+
+Optional:
+
+- `boolean` (Boolean) A boolean value.
+- `boolean_array` (List of Boolean) A list of boolean values.
+- `string` (String) A string value.
+- `string_array` (List of String) A list of string values.
+
 
 
 
@@ -213,7 +257,18 @@ Optional:
 - `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
 - `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
 - `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
-- `value` (String) A literal value (JSON-encoded).
+- `value` (Attributes) A literal value. Exactly one of string, string_array, boolean, or boolean_array must be set. (see [below for nested schema](#nestedatt--permission--read--conditions--left--value))
+
+<a id="nestedatt--permission--read--conditions--left--value"></a>
+### Nested Schema for `permission.read.conditions.left.value`
+
+Optional:
+
+- `boolean` (Boolean) A boolean value.
+- `boolean_array` (List of Boolean) A list of boolean values.
+- `string` (String) A string value.
+- `string_array` (List of String) A list of string values.
+
 
 
 <a id="nestedatt--permission--read--conditions--right"></a>
@@ -225,7 +280,18 @@ Optional:
 - `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
 - `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
 - `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
-- `value` (String) A literal value (JSON-encoded).
+- `value` (Attributes) A literal value. Exactly one of string, string_array, boolean, or boolean_array must be set. (see [below for nested schema](#nestedatt--permission--read--conditions--right--value))
+
+<a id="nestedatt--permission--read--conditions--right--value"></a>
+### Nested Schema for `permission.read.conditions.right.value`
+
+Optional:
+
+- `boolean` (Boolean) A boolean value.
+- `boolean_array` (List of Boolean) A list of boolean values.
+- `string` (String) A string value.
+- `string_array` (List of String) A list of string values.
+
 
 
 
@@ -260,7 +326,18 @@ Optional:
 - `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
 - `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
 - `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
-- `value` (String) A literal value (JSON-encoded).
+- `value` (Attributes) A literal value. Exactly one of string, string_array, boolean, or boolean_array must be set. (see [below for nested schema](#nestedatt--permission--send_password_reset_email--conditions--left--value))
+
+<a id="nestedatt--permission--send_password_reset_email--conditions--left--value"></a>
+### Nested Schema for `permission.send_password_reset_email.conditions.left.value`
+
+Optional:
+
+- `boolean` (Boolean) A boolean value.
+- `boolean_array` (List of Boolean) A list of boolean values.
+- `string` (String) A string value.
+- `string_array` (List of String) A list of string values.
+
 
 
 <a id="nestedatt--permission--send_password_reset_email--conditions--right"></a>
@@ -272,7 +349,18 @@ Optional:
 - `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
 - `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
 - `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
-- `value` (String) A literal value (JSON-encoded).
+- `value` (Attributes) A literal value. Exactly one of string, string_array, boolean, or boolean_array must be set. (see [below for nested schema](#nestedatt--permission--send_password_reset_email--conditions--right--value))
+
+<a id="nestedatt--permission--send_password_reset_email--conditions--right--value"></a>
+### Nested Schema for `permission.send_password_reset_email.conditions.right.value`
+
+Optional:
+
+- `boolean` (Boolean) A boolean value.
+- `boolean_array` (List of Boolean) A list of boolean values.
+- `string` (String) A string value.
+- `string_array` (List of String) A list of string values.
+
 
 
 
@@ -307,7 +395,18 @@ Optional:
 - `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
 - `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
 - `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
-- `value` (String) A literal value (JSON-encoded).
+- `value` (Attributes) A literal value. Exactly one of string, string_array, boolean, or boolean_array must be set. (see [below for nested schema](#nestedatt--permission--update--conditions--left--value))
+
+<a id="nestedatt--permission--update--conditions--left--value"></a>
+### Nested Schema for `permission.update.conditions.left.value`
+
+Optional:
+
+- `boolean` (Boolean) A boolean value.
+- `boolean_array` (List of Boolean) A list of boolean values.
+- `string` (String) A string value.
+- `string_array` (List of String) A list of string values.
+
 
 
 <a id="nestedatt--permission--update--conditions--right"></a>
@@ -319,7 +418,18 @@ Optional:
 - `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
 - `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
 - `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
-- `value` (String) A literal value (JSON-encoded).
+- `value` (Attributes) A literal value. Exactly one of string, string_array, boolean, or boolean_array must be set. (see [below for nested schema](#nestedatt--permission--update--conditions--right--value))
+
+<a id="nestedatt--permission--update--conditions--right--value"></a>
+### Nested Schema for `permission.update.conditions.right.value`
+
+Optional:
+
+- `boolean` (Boolean) A boolean value.
+- `boolean_array` (List of Boolean) A list of boolean values.
+- `string` (String) A string value.
+- `string_array` (List of String) A list of string values.
+
 
 
 
