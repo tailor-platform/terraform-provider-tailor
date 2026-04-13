@@ -115,9 +115,9 @@ Required:
 
 Optional:
 
-- `idp_user_field` (String) A field from the IdP user record (e.g., "_id", "_name", "_disabled").
-- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
-- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
+- `idp_user_field` (String) A field from the IdP user record (e.g., "id", "name", "disabled").
+- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "id", "name", "disabled").
+- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "id", "name", "disabled").
 - `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
 - `value` (Attributes) A literal value. Exactly one of string, string_array, boolean, or boolean_array must be set. (see [below for nested schema](#nestedatt--permission--create--conditions--left--value))
 
@@ -138,9 +138,9 @@ Optional:
 
 Optional:
 
-- `idp_user_field` (String) A field from the IdP user record (e.g., "_id", "_name", "_disabled").
-- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
-- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
+- `idp_user_field` (String) A field from the IdP user record (e.g., "id", "name", "disabled").
+- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "id", "name", "disabled").
+- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "id", "name", "disabled").
 - `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
 - `value` (Attributes) A literal value. Exactly one of string, string_array, boolean, or boolean_array must be set. (see [below for nested schema](#nestedatt--permission--create--conditions--right--value))
 
@@ -184,9 +184,9 @@ Required:
 
 Optional:
 
-- `idp_user_field` (String) A field from the IdP user record (e.g., "_id", "_name", "_disabled").
-- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
-- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
+- `idp_user_field` (String) A field from the IdP user record (e.g., "id", "name", "disabled").
+- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "id", "name", "disabled").
+- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "id", "name", "disabled").
 - `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
 - `value` (Attributes) A literal value. Exactly one of string, string_array, boolean, or boolean_array must be set. (see [below for nested schema](#nestedatt--permission--delete--conditions--left--value))
 
@@ -207,9 +207,9 @@ Optional:
 
 Optional:
 
-- `idp_user_field` (String) A field from the IdP user record (e.g., "_id", "_name", "_disabled").
-- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
-- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
+- `idp_user_field` (String) A field from the IdP user record (e.g., "id", "name", "disabled").
+- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "id", "name", "disabled").
+- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "id", "name", "disabled").
 - `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
 - `value` (Attributes) A literal value. Exactly one of string, string_array, boolean, or boolean_array must be set. (see [below for nested schema](#nestedatt--permission--delete--conditions--right--value))
 
@@ -253,9 +253,9 @@ Required:
 
 Optional:
 
-- `idp_user_field` (String) A field from the IdP user record (e.g., "_id", "_name", "_disabled").
-- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
-- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
+- `idp_user_field` (String) A field from the IdP user record (e.g., "id", "name", "disabled").
+- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "id", "name", "disabled").
+- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "id", "name", "disabled").
 - `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
 - `value` (Attributes) A literal value. Exactly one of string, string_array, boolean, or boolean_array must be set. (see [below for nested schema](#nestedatt--permission--read--conditions--left--value))
 
@@ -276,9 +276,9 @@ Optional:
 
 Optional:
 
-- `idp_user_field` (String) A field from the IdP user record (e.g., "_id", "_name", "_disabled").
-- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
-- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
+- `idp_user_field` (String) A field from the IdP user record (e.g., "id", "name", "disabled").
+- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "id", "name", "disabled").
+- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "id", "name", "disabled").
 - `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
 - `value` (Attributes) A literal value. Exactly one of string, string_array, boolean, or boolean_array must be set. (see [below for nested schema](#nestedatt--permission--read--conditions--right--value))
 
@@ -322,9 +322,9 @@ Required:
 
 Optional:
 
-- `idp_user_field` (String) A field from the IdP user record (e.g., "_id", "_name", "_disabled").
-- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
-- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
+- `idp_user_field` (String) A field from the IdP user record (e.g., "id", "name", "disabled").
+- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "id", "name", "disabled").
+- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "id", "name", "disabled").
 - `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
 - `value` (Attributes) A literal value. Exactly one of string, string_array, boolean, or boolean_array must be set. (see [below for nested schema](#nestedatt--permission--send_password_reset_email--conditions--left--value))
 
@@ -345,9 +345,9 @@ Optional:
 
 Optional:
 
-- `idp_user_field` (String) A field from the IdP user record (e.g., "_id", "_name", "_disabled").
-- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
-- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
+- `idp_user_field` (String) A field from the IdP user record (e.g., "id", "name", "disabled").
+- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "id", "name", "disabled").
+- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "id", "name", "disabled").
 - `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
 - `value` (Attributes) A literal value. Exactly one of string, string_array, boolean, or boolean_array must be set. (see [below for nested schema](#nestedatt--permission--send_password_reset_email--conditions--right--value))
 
@@ -391,9 +391,9 @@ Required:
 
 Optional:
 
-- `idp_user_field` (String) A field from the IdP user record (e.g., "_id", "_name", "_disabled").
-- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
-- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
+- `idp_user_field` (String) A field from the IdP user record (e.g., "id", "name", "disabled").
+- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "id", "name", "disabled").
+- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "id", "name", "disabled").
 - `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
 - `value` (Attributes) A literal value. Exactly one of string, string_array, boolean, or boolean_array must be set. (see [below for nested schema](#nestedatt--permission--update--conditions--left--value))
 
@@ -414,9 +414,9 @@ Optional:
 
 Optional:
 
-- `idp_user_field` (String) A field from the IdP user record (e.g., "_id", "_name", "_disabled").
-- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
-- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "_id", "_name", "_disabled").
+- `idp_user_field` (String) A field from the IdP user record (e.g., "id", "name", "disabled").
+- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "id", "name", "disabled").
+- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "id", "name", "disabled").
 - `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
 - `value` (Attributes) A literal value. Exactly one of string, string_array, boolean, or boolean_array must be set. (see [below for nested schema](#nestedatt--permission--update--conditions--right--value))
 
