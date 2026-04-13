@@ -119,6 +119,7 @@ Required:
 
 Optional:
 
+- `default_redirect_url` (String) URL to redirect to when SAML ACS receives a response with an empty RelayState. This allows applications to handle the situation on their own, for example by initiating a standard SP-initiated login flow.
 - `enable_sign_request` (Boolean) Whether to enable signing of SAML authentication requests from Auth service to IdP
 - `metadata_url` (String) The URL of the SAML metadata.
 - `raw_metadata` (String) The raw SAML metadata.

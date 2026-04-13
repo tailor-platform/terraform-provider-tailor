@@ -341,6 +341,18 @@ Required:
 <a id="nestedatt--trigger--webhook"></a>
 ### Nested Schema for `trigger.webhook`
 
+Optional:
+
+- `response` (Attributes) The response configuration for the webhook trigger. (see [below for nested schema](#nestedatt--trigger--webhook--response))
+
 Read-Only:
 
 - `url` (String) The computed URL for the webhook trigger.
+
+<a id="nestedatt--trigger--webhook--response"></a>
+### Nested Schema for `trigger.webhook.response`
+
+Optional:
+
+- `body` (String) A JavaScript expression to evaluate for the webhook response body.
+- `status_code` (Number) The HTTP status code for the webhook response. Defaults to 200 when body is set.
