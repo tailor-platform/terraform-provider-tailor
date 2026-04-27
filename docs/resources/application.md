@@ -64,6 +64,7 @@ resource "tailor_application" "starwars" {
 - `cors` (List of String) The list of allowed origins for CORS.
 - `disable_introspection` (Boolean) Disable GraphQL introspection for the application.
 - `disabled` (Boolean) Whether the application is disabled.
+- `filters` (Attributes List) HTTP filters for request/response transformation via JavaScript. (see [below for nested schema](#nestedatt--filters))
 - `labels` (Map of String) Labels for this application.
 
 ### Read-Only
@@ -91,3 +92,20 @@ Required:
 Optional:
 
 - `idp_config_name` (String) The name of the auth_idp_config resource.
+
+
+<a id="nestedatt--filters"></a>
+### Nested Schema for `filters`
+
+Required:
+
+- `input_filter_script` (String) JavaScript source for input transformation (HTTP request -> GraphQL request).
+- `methods` (List of String) HTTP methods to match (e.g., ["GET", "POST"]).
+- `name` (String) Unique name for this filter.
+- `path_pattern` (String) URL path pattern to match (e.g., "/api/v1/users/*", "/calendar.ics").
+
+Optional:
+
+- `enabled` (Boolean) Whether this filter is enabled.
+- `output_filter_script` (String) JavaScript source for output transformation (GraphQL response -> arbitrary format). Optional.
+- `priority` (Number) Priority for filter matching. Lower values have higher priority.

@@ -24,12 +24,21 @@ The workflow resource represents a workflow orchestration that executes multiple
 
 ### Optional
 
+- `concurrency_policy` (Attributes) (see [below for nested schema](#nestedatt--concurrency_policy))
 - `labels` (Map of String) Labels for this workflow.
 - `retry_policy` (Attributes) (see [below for nested schema](#nestedatt--retry_policy))
 
 ### Read-Only
 
 - `id` (String) The unique identifier of the resource.
+
+<a id="nestedatt--concurrency_policy"></a>
+### Nested Schema for `concurrency_policy`
+
+Required:
+
+- `max_concurrent_executions` (Number)
+
 
 <a id="nestedatt--retry_policy"></a>
 ### Nested Schema for `retry_policy`
