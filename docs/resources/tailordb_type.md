@@ -93,6 +93,18 @@ EOF
     }
   }
 
+  type_validate = {
+    create = <<EOF
+(function() {
+  var errors = {};
+  if (!_input.name || _input.name.length < 2) {
+    errors.name = "Name must be at least 2 characters";
+  }
+  return errors;
+})()
+EOF
+  }
+
   type_permission = {
     create = [
       {
@@ -160,7 +172,9 @@ EOF
 - `record_permission` (Attributes) Define record-level permissions for this TailorDBType. (see [below for nested schema](#nestedatt--record_permission))
 - `relationships` (Attributes Map) Relationships for this TailorDBType. (see [below for nested schema](#nestedatt--relationships))
 - `settings` (Attributes) Miscellaneous settings for this TailorDBType. (see [below for nested schema](#nestedatt--settings))
+- `type_hook` (Attributes) Type-level hooks that execute once per operation instead of per-field. Cannot be used together with field-level hooks. The script receives '_input' (record map) and 'user' (current user context), and should return an object with fields to override. (see [below for nested schema](#nestedatt--type_hook))
 - `type_permission` (Attributes) Define type-level permissions for this TailorDBType. (see [below for nested schema](#nestedatt--type_permission))
+- `type_validate` (Attributes) Type-level validation that executes once per operation instead of per-field. Cannot be used together with field-level validate. The script receives '_input' (record map) and 'user' (current user context), and should return '{ fieldName: errorMessage }' on failure or '{}' on success. (see [below for nested schema](#nestedatt--type_validate))
 
 ### Read-Only
 
@@ -757,6 +771,15 @@ Optional:
 
 
 
+<a id="nestedatt--type_hook"></a>
+### Nested Schema for `type_hook`
+
+Optional:
+
+- `create` (String) The JavaScript code to evaluate for create hook.
+- `update` (String) The JavaScript code to evaluate for update hook.
+
+
 <a id="nestedatt--type_permission"></a>
 ### Nested Schema for `type_permission`
 
@@ -831,3 +854,13 @@ Optional:
 
 - `attribute` (String) A single attribute for this permission.
 - `attributes` (List of String) The list of attributes for this permission.
+
+
+
+<a id="nestedatt--type_validate"></a>
+### Nested Schema for `type_validate`
+
+Optional:
+
+- `create` (String) The JavaScript code to evaluate for create validation.
+- `update` (String) The JavaScript code to evaluate for update validation.
