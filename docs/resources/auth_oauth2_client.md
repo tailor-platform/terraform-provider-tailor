@@ -62,7 +62,12 @@ resource "tailor_auth_oauth2_client" "k2so" {
 - `description` (String) The description of this OAuth2 client.
 - `grant_types` (List of String) The list of grant types for this OAuth2 client.
 - `labels` (Map of String) Labels for this OAuth2 client.
-- `redirect_uris` (List of String) The list of redirect URIs for this OAuth2 client.
+- `redirect_uris` (List of String) The list of redirect URIs for this OAuth2 client. Each URI must be an exact-match value;
+wildcard characters (`*`) are not permitted and Create / Update will fail with
+InvalidArgument if any entry contains one. For `public` and `browser` client types,
+loopback redirects (`http://127.0.0.1` / `http://[::1]`) are allowed to use a different
+port at authorize time per RFC 8252 §7.3, but every other URI component (scheme, host,
+path, query, fragment, userinfo) must still match exactly.
 - `refresh_token_lifetime` (String) Optional refresh token lifetime as a duration string (e.g., "24h", "168h", "7d" is not supported, use "168h"). If not set, uses the default lifetime. Maximum allowed value is 168h (7 days).
 - `require_dpop` (Boolean) When true, DPoP proof is required for token requests. Cannot be set to true for browser clients as they don't support DPoP.
 
