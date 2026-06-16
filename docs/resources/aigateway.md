@@ -26,6 +26,7 @@ The aigateway resource represents an AI Gateway in Tailor.
 - `cors` (List of String) Allowed CORS origins for browser-based clients. Each entry is one of:
 `*` (any origin), `http(s)://*`, `http(s)://*.example.com`, or `http(s)://app.example.com`.
 An optional `:port` may be appended. Empty list disables cross-origin access.
+- `disabled` (Boolean) When true, the AI Gateway stops serving traffic. Flip back to false to resume. Defaults to false.
 - `labels` (Map of String) Labels for this AI Gateway.
 
 ### Read-Only
