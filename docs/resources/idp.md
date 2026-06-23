@@ -87,6 +87,7 @@ Optional:
 - `delete` (Attributes List) Policies for the delete operation. (see [below for nested schema](#nestedatt--permission--delete))
 - `read` (Attributes List) Policies for the read operation. (see [below for nested schema](#nestedatt--permission--read))
 - `send_password_reset_email` (Attributes List) Policies for the send_password_reset_email operation. (see [below for nested schema](#nestedatt--permission--send_password_reset_email))
+- `unenroll_mfa` (Attributes List) Policies for the unenroll_mfa operation (admin removal of a user's MFA factor; requires read first). (see [below for nested schema](#nestedatt--permission--unenroll_mfa))
 - `update` (Attributes List) Policies for the update operation. (see [below for nested schema](#nestedatt--permission--update))
 
 <a id="nestedatt--permission--create"></a>
@@ -365,6 +366,75 @@ Optional:
 
 
 
+<a id="nestedatt--permission--unenroll_mfa"></a>
+### Nested Schema for `permission.unenroll_mfa`
+
+Required:
+
+- `permit` (String) Whether to allow or deny the operation.
+
+Optional:
+
+- `conditions` (Attributes List) Conditions that must all be true for this policy to apply. (see [below for nested schema](#nestedatt--permission--unenroll_mfa--conditions))
+- `description` (String) Optional description of this policy.
+
+<a id="nestedatt--permission--unenroll_mfa--conditions"></a>
+### Nested Schema for `permission.unenroll_mfa.conditions`
+
+Required:
+
+- `left` (Attributes) An operand for a permission condition. Exactly one field must be set. (see [below for nested schema](#nestedatt--permission--unenroll_mfa--conditions--left))
+- `operator` (String) Comparison operator. Must be "eq", "ne", "in", or "nin".
+- `right` (Attributes) An operand for a permission condition. Exactly one field must be set. (see [below for nested schema](#nestedatt--permission--unenroll_mfa--conditions--right))
+
+<a id="nestedatt--permission--unenroll_mfa--conditions--left"></a>
+### Nested Schema for `permission.unenroll_mfa.conditions.left`
+
+Optional:
+
+- `idp_user_field` (String) A field from the IdP user record (e.g., "id", "name", "disabled").
+- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "id", "name", "disabled").
+- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "id", "name", "disabled").
+- `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
+- `value` (Attributes) A literal value. Exactly one of string, string_array, boolean, or boolean_array must be set. (see [below for nested schema](#nestedatt--permission--unenroll_mfa--conditions--left--value))
+
+<a id="nestedatt--permission--unenroll_mfa--conditions--left--value"></a>
+### Nested Schema for `permission.unenroll_mfa.conditions.left.value`
+
+Optional:
+
+- `boolean` (Boolean) A boolean value.
+- `boolean_array` (List of Boolean) A list of boolean values.
+- `string` (String) A string value.
+- `string_array` (List of String) A list of string values.
+
+
+
+<a id="nestedatt--permission--unenroll_mfa--conditions--right"></a>
+### Nested Schema for `permission.unenroll_mfa.conditions.right`
+
+Optional:
+
+- `idp_user_field` (String) A field from the IdP user record (e.g., "id", "name", "disabled").
+- `new_idp_user_field` (String) A field from the new IdP user record (for update operations, e.g., "id", "name", "disabled").
+- `old_idp_user_field` (String) A field from the old IdP user record (for update operations, e.g., "id", "name", "disabled").
+- `user_field` (String) A field from the authenticated user context (e.g., "_id", "_loggedIn").
+- `value` (Attributes) A literal value. Exactly one of string, string_array, boolean, or boolean_array must be set. (see [below for nested schema](#nestedatt--permission--unenroll_mfa--conditions--right--value))
+
+<a id="nestedatt--permission--unenroll_mfa--conditions--right--value"></a>
+### Nested Schema for `permission.unenroll_mfa.conditions.right.value`
+
+Optional:
+
+- `boolean` (Boolean) A boolean value.
+- `boolean_array` (List of Boolean) A list of boolean values.
+- `string` (String) A string value.
+- `string_array` (List of String) A list of string values.
+
+
+
+
+
 <a id="nestedatt--permission--update"></a>
 ### Nested Schema for `permission.update`
 
@@ -444,11 +514,15 @@ Optional:
 - `allow_microsoft_oauth` (Boolean) Whether to enable "Sign in with Microsoft" for this namespace. When enabled, users can authenticate using their Microsoft account. Cannot be enabled when use_non_email_identifier is true. Requires allowed_email_domains to be set and disable_password_auth to be true. Defaults to false.
 - `allow_self_password_reset` (Boolean) Allow users to reset their own password via a "Forgot Password?" link on the sign-in screen.
 - `allowed_email_domains` (List of String) List of allowed email domains for user authentication (e.g., ["example.com", "corp.example.com"]). When set, only users with email addresses from these domains can authenticate. An empty list means all domains are allowed (backward compatible). When use_non_email_identifier is true, this list must be empty.
+- `allowed_return_origins` (List of String) Origins (scheme + host + optional port, e.g. "https://app.example.com") that the IdP-hosted /mfa/settings page is allowed to redirect back to after the user finishes managing their factors. Required when enable_mfa = true. Compared by RFC 6454 origin equality with default-port elision.
 - `disable_password_auth` (Boolean) Whether to disable password-based authentication for this namespace. When enabled, users can only authenticate via OAuth (requires allow_google_oauth or allow_microsoft_oauth to be true). Cannot be enabled when allow_self_password_reset is true. Defaults to false.
+- `enable_mfa` (Boolean) When true, TOTP MFA is available for users in this namespace. Setting this flips the Identity Platform tenant's MFA configuration to ENABLED; users can enroll a factor via the IdP-hosted /mfa/settings page, but are not required to. Requires the namespace to use the new IdP Permission system (not the legacy `authorization` CEL string), and requires `allowed_return_origins` to list at least one origin so /mfa/settings has a valid redirect target. Defaults to false.
+- `mfa_issuer` (String) Issuer label shown alongside the user's account name in authenticator apps when enrolling a TOTP factor. Defaults to the namespace name when empty.
 - `password_max_length` (Number) Maximum password length. Valid range is 6-4096. When 0 (unset), uses default value 4096.
 - `password_min_length` (Number) Minimum password length. Valid range is 6-30. When 0 (unset), uses default value 6.
 - `password_require_lowercase` (Boolean) Whether to require at least one lowercase letter in the password. Defaults to false.
 - `password_require_non_alphanumeric` (Boolean) Whether to require at least one non-alphanumeric character (special character) in the password. Defaults to false.
 - `password_require_numeric` (Boolean) Whether to require at least one numeric digit in the password. Defaults to false.
 - `password_require_uppercase` (Boolean) Whether to require at least one uppercase letter in the password. Defaults to false.
+- `require_mfa` (Boolean) When true, password sign-ins must complete MFA to obtain a token. Has no effect on Google / Microsoft OAuth sign-ins (those rely on the upstream IdP for MFA). Requires enable_mfa = true. Defaults to false.
 - `use_non_email_identifier` (Boolean) Whether to allow non-email identifiers for user authentication. When set to true, users can authenticate using identifiers other than email addresses (such as usernames). When set to false or omitted, only email addresses are accepted as user identifiers. Defaults to false.
