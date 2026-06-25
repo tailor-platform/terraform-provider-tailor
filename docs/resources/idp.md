@@ -65,7 +65,9 @@ Optional:
 - `create` (Boolean) Disable the `_createUser` mutation.
 - `delete` (Boolean) Disable the `_deleteUser` mutation.
 - `read` (Boolean) Disable the `_user` and `_users` queries.
+- `request_mfa_settings_url` (Boolean) Disable the `_requestMfaSettingsUrl` query.
 - `send_password_reset_email` (Boolean) Disable the `_sendPasswordResetEmail` mutation.
+- `unenroll_mfa` (Boolean) Disable the `_unenrollMfa` mutation.
 - `update` (Boolean) Disable the `_updateUser` mutation.
 
 
