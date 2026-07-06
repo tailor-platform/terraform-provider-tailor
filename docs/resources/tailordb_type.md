@@ -97,7 +97,7 @@ EOF
     create = <<EOF
 (function() {
   var errors = {};
-  if (!_input.name || _input.name.length < 2) {
+  if (!_newRecord.name || _newRecord.name.length < 2) {
     errors.name = "Name must be at least 2 characters";
   }
   return errors;
@@ -172,9 +172,9 @@ EOF
 - `record_permission` (Attributes) Define record-level permissions for this TailorDBType. (see [below for nested schema](#nestedatt--record_permission))
 - `relationships` (Attributes Map) Relationships for this TailorDBType. (see [below for nested schema](#nestedatt--relationships))
 - `settings` (Attributes) Miscellaneous settings for this TailorDBType. (see [below for nested schema](#nestedatt--settings))
-- `type_hook` (Attributes) Type-level hooks that execute once per operation instead of per-field. Cannot be used together with field-level hooks. The script receives '_input' (record map) and 'user' (current user context), and should return an object with fields to override. (see [below for nested schema](#nestedatt--type_hook))
+- `type_hook` (Attributes) Type-level hooks that execute once per operation instead of per-field. Cannot be used together with field-level hooks. The script receives '_input' (the raw user input for this operation), '_oldRecord' (the record before the operation, null on create), and 'user' (current user context), and should return an object with fields to override. (see [below for nested schema](#nestedatt--type_hook))
 - `type_permission` (Attributes) Define type-level permissions for this TailorDBType. (see [below for nested schema](#nestedatt--type_permission))
-- `type_validate` (Attributes) Type-level validation that executes once per operation instead of per-field. Cannot be used together with field-level validate. The script receives '_input' (record map) and 'user' (current user context), and should return '{ fieldName: errorMessage }' on failure or '{}' on success. (see [below for nested schema](#nestedatt--type_validate))
+- `type_validate` (Attributes) Type-level validation that executes once per operation instead of per-field. Cannot be used together with field-level validate. The script receives '_newRecord' (the merged record that will be saved), '_oldRecord' (the record before the operation, null on create), and 'user' (current user context), and should return '{ fieldName: errorMessage }' on failure or '{}' on success. (see [below for nested schema](#nestedatt--type_validate))
 
 ### Read-Only
 

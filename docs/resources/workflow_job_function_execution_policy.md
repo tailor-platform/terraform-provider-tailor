@@ -18,6 +18,7 @@ The workflow_job_function_execution_policy resource declares a workflow job func
 ### Required
 
 - `execution_policy_key` (String) The user-facing identifier the workflow job function passes to triggerJobFunction() as options.executionPolicyKey. Allowed characters are [a-z0-9_.-] (2-64 chars; must start and end with [a-z0-9]). Must be unique within the workspace.
+- `name` (String) The name of this execution policy. Allowed characters are [a-z0-9-] (3-63 chars; must start and end with [a-z0-9]). Must be unique within the workspace. The resource TRN embeds this value.
 - `workspace_id` (String) The ID of the workspace that this execution policy belongs to.
 
 ### Optional
