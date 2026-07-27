@@ -23,6 +23,7 @@ The workflow_job_function resource represents a versioned JavaScript function us
 ### Optional
 
 - `labels` (Map of String) Labels for this workflow job function.
+- `publish_execution_events` (Boolean) When true, publish workflow.workflow_execution.job_execution.* dataplane events for executions of this job function. Defaults to false.
 - `script` (String) The JavaScript code for this workflow job function. Each update creates a new version. Mutually exclusive with script_ref.
 - `script_ref` (String) Reference to a function in the Function Registry. When set, the function code is loaded from the registry instead of using inline script. Mutually exclusive with script.
 

@@ -6,18 +6,6 @@ description: |-
   The telemetryrouter_otlp_exporter resource configures an OTLP destination to which a workspace's
   OpenTelemetry signals (traces, metrics, and logs) are forwarded. A workspace may have multiple
   exporters, each identified by a unique name.
-  This resource was previously named tailor_telemetryrouter_telemetry_export. To migrate an
-  existing resource without destroying it, rename the resource type in your configuration and add
-  a moved block (Terraform >= 1.8):
-  
-  moved {
-    from = tailor_telemetryrouter_telemetry_export.example
-    to   = tailor_telemetryrouter_otlp_exporter.example
-  }
-  
-  Do not rename the resource type without a moved block — Terraform would otherwise plan to
-  destroy and recreate the exporter. If moved is unavailable, remove the old entry with
-  terraform state rm and re-import it under the new type instead.
 ---
 
 # tailor_telemetryrouter_otlp_exporter (Resource)
@@ -25,21 +13,6 @@ description: |-
 The telemetryrouter_otlp_exporter resource configures an OTLP destination to which a workspace's
 OpenTelemetry signals (traces, metrics, and logs) are forwarded. A workspace may have multiple
 exporters, each identified by a unique name.
-
-This resource was previously named `tailor_telemetryrouter_telemetry_export`. To migrate an
-existing resource without destroying it, rename the resource type in your configuration and add
-a `moved` block (Terraform >= 1.8):
-
-```terraform
-moved {
-  from = tailor_telemetryrouter_telemetry_export.example
-  to   = tailor_telemetryrouter_otlp_exporter.example
-}
-```
-
-Do not rename the resource type without a `moved` block — Terraform would otherwise plan to
-destroy and recreate the exporter. If `moved` is unavailable, remove the old entry with
-`terraform state rm` and re-import it under the new type instead.
 
 ## Example Usage
 
@@ -83,6 +56,7 @@ resource "tailor_telemetryrouter_otlp_exporter" "datadog" {
 - `enable_traces` (Boolean) Whether to forward trace signals to this exporter. Defaults to false.
 - `enabled` (Boolean) Whether this exporter is active. Defaults to true.
 - `headers` (Map of String, Sensitive) Additional headers to attach to outgoing requests to the endpoint.
+- `include_access_logs` (Boolean) Whether to include API request access logs in what this exporter forwards. Access logs are an additional category of the logs signal, delivered only when enabled, enable_logs, and include_access_logs are all true. Defaults to false.
 
 ### Read-Only
 

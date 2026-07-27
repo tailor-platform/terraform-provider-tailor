@@ -3,12 +3,12 @@
 page_title: "tailor_workflow_job_function_execution_policy Resource - terraform-provider-tailor"
 subcategory: ""
 description: |-
-  The workflow_job_function_execution_policy resource declares a workflow job function execution policy keyed by an execution_policy_key. When a workflow job function script passes the matching executionPolicyKey to triggerJobFunction(), the runner enforces the policy's concurrency limit on that key (atomic per-key cap; dispatches that would exceed the cap suspend before they start and resume as slots free up).
+  The workflow_job_function_execution_policy resource declares a workflow job function execution policy keyed by an execution_policy_key. When a workflow job function script passes an executionPolicyKey that matches this policy to execJobFunction(), the runner enforces the policy's concurrency limit on the matched concrete key (atomic per-key cap; dispatches that would exceed the cap suspend before they start and resume as slots free up). Exact policies match exactly one concrete key (the declared key). Wildcard policies (see execution_policy_key) match every concrete key sharing the declared prefix; each resolved concrete key then runs in its own independent pool sized by max_concurrent_executions.
 ---
 
 # tailor_workflow_job_function_execution_policy (Resource)
 
-The workflow_job_function_execution_policy resource declares a workflow job function execution policy keyed by an execution_policy_key. When a workflow job function script passes the matching executionPolicyKey to triggerJobFunction(), the runner enforces the policy's concurrency limit on that key (atomic per-key cap; dispatches that would exceed the cap suspend before they start and resume as slots free up).
+The workflow_job_function_execution_policy resource declares a workflow job function execution policy keyed by an execution_policy_key. When a workflow job function script passes an executionPolicyKey that matches this policy to execJobFunction(), the runner enforces the policy's concurrency limit on the matched concrete key (atomic per-key cap; dispatches that would exceed the cap suspend before they start and resume as slots free up). Exact policies match exactly one concrete key (the declared key). Wildcard policies (see execution_policy_key) match every concrete key sharing the declared prefix; each resolved concrete key then runs in its own independent pool sized by max_concurrent_executions.
 
 
 
@@ -17,13 +17,16 @@ The workflow_job_function_execution_policy resource declares a workflow job func
 
 ### Required
 
-- `execution_policy_key` (String) The user-facing identifier the workflow job function passes to triggerJobFunction() as options.executionPolicyKey. Allowed characters are [a-z0-9_.-] (2-64 chars; must start and end with [a-z0-9]). Must be unique within the workspace.
+- `execution_policy_key` (String) The user-facing identifier the workflow job function passes to execJobFunction() as options.executionPolicyKey. Two shapes:
+  - Exact: [a-z0-9_:.-] (2-64 chars; must start and end with [a-z0-9]). Matches only the concrete key with the same string.
+  - Wildcard: same alphabet and length envelope as the exact form except the last character is `*` (e.g. `tenant-api*`, `tenant-api.*`, `tenant-*`). Matches every concrete key that starts with the prefix (everything before the trailing `*`); when multiple wildcards match a concrete key, the longest-prefix one wins. Platform makes no assumption about what character acts as a namespace boundary; the caller decides that via the prefix they choose.
+Must be unique within the workspace. Scripts cannot supply a `*`-bearing key; wildcards live on the policy side only.
 - `name` (String) The name of this execution policy. Allowed characters are [a-z0-9-] (3-63 chars; must start and end with [a-z0-9]). Must be unique within the workspace. The resource TRN embeds this value.
 - `workspace_id` (String) The ID of the workspace that this execution policy belongs to.
 
 ### Optional
 
-- `concurrency_policy` (Attributes) Concurrency limit applied to job function dispatches that resolve to this execution_policy_key. When omitted, the policy registers the key as valid but applies no user-defined limit (platform safety nets still apply). (see [below for nested schema](#nestedatt--concurrency_policy))
+- `concurrency_policy` (Attributes) Concurrency limit applied per matched concrete key. Each concrete key that this policy matches (exactly one for exact policies, one per resolved tenant / suffix for wildcards) runs in its own independent slot pool sized by max_concurrent_executions. When concurrency_policy is omitted, the policy registers the key(s) as valid but applies no user-defined limit (platform safety nets still apply). (see [below for nested schema](#nestedatt--concurrency_policy))
 - `labels` (Map of String) Labels for this execution policy.
 
 ### Read-Only

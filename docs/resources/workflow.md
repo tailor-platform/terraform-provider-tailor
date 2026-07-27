@@ -26,6 +26,7 @@ The workflow resource represents a workflow orchestration that executes multiple
 
 - `concurrency_policy` (Attributes) (see [below for nested schema](#nestedatt--concurrency_policy))
 - `labels` (Map of String) Labels for this workflow.
+- `publish_execution_events` (Boolean) When true, publish workflow.workflow_execution.* dataplane events for this workflow's executions. Defaults to false.
 - `retry_policy` (Attributes) (see [below for nested schema](#nestedatt--retry_policy))
 
 ### Read-Only
