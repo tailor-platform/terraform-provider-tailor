@@ -20,3 +20,13 @@ The organization folder IP restriction resource configures an IP allowlist appli
 - `allowed_ip_addresses` (List of String) List of allowed IPv4/IPv6 addresses or CIDR blocks. Each entry must be a public address; private, loopback, and multicast ranges are rejected.
 - `folder_id` (String) The ID of the folder. Changing this forces replacement.
 - `organization_id` (String) The ID of the organization that owns the folder. Changing this forces replacement.
+
+## Import
+
+Import is supported using the following syntax:
+
+The [`terraform import` command](https://developer.hashicorp.com/terraform/cli/commands/import) can be used, for example:
+
+```shell
+terraform import tailor_organization_folder_ip_restriction.example organization/00000000-0000-0000-0000-000000000001/folder/00000000-0000-0000-0000-000000000002/ip_restriction
+```

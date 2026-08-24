@@ -30,3 +30,13 @@ resource "tailor_organization_team" "the_501st_legion" {
 ### Read-Only
 
 - `id` (String) The computed ID of the organization team.
+
+## Import
+
+Import is supported using the following syntax:
+
+The [`terraform import` command](https://developer.hashicorp.com/terraform/cli/commands/import) can be used, for example:
+
+```shell
+terraform import tailor_organization_team.example organization/00000000-0000-0000-0000-000000000001/team/00000000-0000-0000-0000-000000000003
+```

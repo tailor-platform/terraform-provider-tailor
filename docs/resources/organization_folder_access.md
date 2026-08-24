@@ -52,3 +52,16 @@ resource "tailor_organization_folder_access" "example_machine_user_folder_access
 - `email` (String) The email of the user. Exactly one of `team_id`, `email`, or `machine_user_id` must be specified.
 - `machine_user_id` (String) The ID of the machine user. Exactly one of `team_id`, `email`, or `machine_user_id` must be specified.
 - `team_id` (String) The ID of the team. Exactly one of `team_id`, `email`, or `machine_user_id` must be specified.
+
+## Import
+
+Import is supported using the following syntax:
+
+The [`terraform import` command](https://developer.hashicorp.com/terraform/cli/commands/import) can be used, for example:
+
+```shell
+# The grantee is identified by one of team, user or machine_user.
+terraform import tailor_organization_folder_access.by_team organization/00000000-0000-0000-0000-000000000001/folder/00000000-0000-0000-0000-000000000002/access/team/00000000-0000-0000-0000-000000000003
+terraform import tailor_organization_folder_access.by_user organization/00000000-0000-0000-0000-000000000001/folder/00000000-0000-0000-0000-000000000002/access/user/someone@example.com
+terraform import tailor_organization_folder_access.by_machine_user organization/00000000-0000-0000-0000-000000000001/folder/00000000-0000-0000-0000-000000000002/access/machine_user/00000000-0000-0000-0000-000000000004
+```

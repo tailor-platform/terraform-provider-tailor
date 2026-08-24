@@ -47,3 +47,15 @@ resource "tailor_platform_machine_user" "folder_bot" {
 - `client_id` (String) The computed client ID of the machine user.
 - `client_secret` (String, Sensitive) The computed client secret of the machine user.
 - `id` (String) The unique identifier of the resource.
+
+## Import
+
+Import is supported using the following syntax:
+
+The [`terraform import` command](https://developer.hashicorp.com/terraform/cli/commands/import) can be used, for example:
+
+```shell
+# The folder segment is omitted for organization-scoped machine users.
+terraform import tailor_platform_machine_user.org_scoped organization/00000000-0000-0000-0000-000000000001/machine_user/00000000-0000-0000-0000-000000000004
+terraform import tailor_platform_machine_user.folder_scoped organization/00000000-0000-0000-0000-000000000001/folder/00000000-0000-0000-0000-000000000002/machine_user/00000000-0000-0000-0000-000000000004
+```

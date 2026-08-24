@@ -30,3 +30,13 @@ resource "tailor_organization_team_member" "the_501st_legion_tk_4601" {
 - `organization_id` (String) The ID of the organization that the team belongs to.
 - `role` (String) The role of the member in the team. Can be one of `member`, `manager` or `admin`.
 - `team_id` (String) The ID of the team that the member belongs to.
+
+## Import
+
+Import is supported using the following syntax:
+
+The [`terraform import` command](https://developer.hashicorp.com/terraform/cli/commands/import) can be used, for example:
+
+```shell
+terraform import tailor_organization_team_member.example organization/00000000-0000-0000-0000-000000000001/team/00000000-0000-0000-0000-000000000003/member/someone@example.com
+```
