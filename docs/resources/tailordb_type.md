@@ -198,7 +198,7 @@ Optional:
 - `index` (Boolean) Whether the field is indexed.
 - `required` (Boolean) Whether the field is required.
 - `scale` (Number)
-- `serial` (Attributes) (see [below for nested schema](#nestedatt--fields--serial))
+- `serial` (Attributes) Numbers the field automatically on create. The field must be an integer or a string. (see [below for nested schema](#nestedatt--fields--serial))
 - `source` (String) The source of the field.
 - `unique` (Boolean) Whether the field is unique.
 - `validate` (Attributes List) Validation settings for fields. (see [below for nested schema](#nestedatt--fields--validate))
@@ -233,7 +233,7 @@ Optional:
 - `index` (Boolean) Whether the field is indexed.
 - `required` (Boolean) Whether the field is required.
 - `scale` (Number)
-- `serial` (Attributes) (see [below for nested schema](#nestedatt--fields--fields--serial))
+- `serial` (Attributes) Numbers the field automatically on create. The field must be an integer or a string. (see [below for nested schema](#nestedatt--fields--fields--serial))
 - `source` (String) The source of the field.
 - `unique` (Boolean) Whether the field is unique.
 - `validate` (Attributes List) Validation settings for fields. (see [below for nested schema](#nestedatt--fields--fields--validate))
@@ -279,12 +279,13 @@ Optional:
 
 Required:
 
-- `start` (Number)
+- `start` (Number) The first number issued.
 
 Optional:
 
-- `format` (String)
-- `max_value` (Number)
+- `format` (String) A printf-style format for the number, such as "INV-%05d". Requires a string field.
+- `gapless` (Boolean) Allocates numbers without gaps: a number is used up only by a create that commits, so the numbers issued run from start with no hole between them. The guarantee covers the numbers issued, not the values in the column: deleting records, truncating the type (numbering restarts at start), changing start (numbering moves to the new start), and values written explicitly through sqlaccess or a hook, or overwritten with an UPDATE through sqlaccess (stored as given without moving the counter, so they can repeat an issued number), can all leave holes or duplicates in the data. A numbered create holds every gapless counter of the type until it commits, so those creates run one at a time however many gapless fields the type has; a create that waits for a counter past the lock timeout fails with a timeout error and can be retried. Permission conditions cannot reference the field's value, which is allocated after the permission checks, and a create refused by them uses up no number. Use it only when contiguous numbering is required.
+- `max_value` (Number) The largest number issued. A create past it fails.
 
 
 <a id="nestedatt--fields--fields--validate"></a>
@@ -330,12 +331,13 @@ Optional:
 
 Required:
 
-- `start` (Number)
+- `start` (Number) The first number issued.
 
 Optional:
 
-- `format` (String)
-- `max_value` (Number)
+- `format` (String) A printf-style format for the number, such as "INV-%05d". Requires a string field.
+- `gapless` (Boolean) Allocates numbers without gaps: a number is used up only by a create that commits, so the numbers issued run from start with no hole between them. The guarantee covers the numbers issued, not the values in the column: deleting records, truncating the type (numbering restarts at start), changing start (numbering moves to the new start), and values written explicitly through sqlaccess or a hook, or overwritten with an UPDATE through sqlaccess (stored as given without moving the counter, so they can repeat an issued number), can all leave holes or duplicates in the data. A numbered create holds every gapless counter of the type until it commits, so those creates run one at a time however many gapless fields the type has; a create that waits for a counter past the lock timeout fails with a timeout error and can be retried. Permission conditions cannot reference the field's value, which is allocated after the permission checks, and a create refused by them uses up no number. Use it only when contiguous numbering is required.
+- `max_value` (Number) The largest number issued. A create past it fails.
 
 
 <a id="nestedatt--fields--validate"></a>

@@ -16,7 +16,7 @@ The organization team member resource allows you to add and remove members from 
 resource "tailor_organization_team_member" "the_501st_legion_tk_4601" {
   organization_id = data.tailor_organization.galactic_empire.id
   team_id         = tailor_organization_team.the_501st_legion.id
-  email           = "TK-4601@tailor.tech"
+  email           = "tk-4601@tailor.tech"
   role            = "member"
 }
 ```
@@ -26,7 +26,7 @@ resource "tailor_organization_team_member" "the_501st_legion_tk_4601" {
 
 ### Required
 
-- `email` (String) The email of the member to add to the team.
+- `email` (String) The email of the member to add to the team. If no platform user has this email yet, an invited user is created and activated on their first sign-in. Use the email exactly as the user signs in with it; emails are matched case-sensitively.
 - `organization_id` (String) The ID of the organization that the team belongs to.
 - `role` (String) The role of the member in the team. Can be one of `member`, `manager` or `admin`.
 - `team_id` (String) The ID of the team that the member belongs to.

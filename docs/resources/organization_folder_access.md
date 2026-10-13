@@ -49,7 +49,7 @@ resource "tailor_organization_folder_access" "example_machine_user_folder_access
 
 ### Optional
 
-- `email` (String) The email of the user. Exactly one of `team_id`, `email`, or `machine_user_id` must be specified.
+- `email` (String) The email of the user. Exactly one of `team_id`, `email`, or `machine_user_id` must be specified. If no platform user has this email yet, an invited user is created and activated on their first sign-in. Use the email exactly as the user signs in with it; emails are matched case-sensitively.
 - `machine_user_id` (String) The ID of the machine user. Exactly one of `team_id`, `email`, or `machine_user_id` must be specified.
 - `team_id` (String) The ID of the team. Exactly one of `team_id`, `email`, or `machine_user_id` must be specified.
 
