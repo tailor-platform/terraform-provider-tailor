@@ -16,7 +16,7 @@ The workspace resource represents a Workspace in Tailor.
 # personal workspace
 resource "tailor_workspace" "starwars" {
   name   = "starwars"
-  region = "us-west" // asia-northeast
+  region = "us-west" // asia-northeast, europe-west
 }
 
 #organization workspace
