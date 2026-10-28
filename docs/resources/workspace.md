@@ -13,15 +13,14 @@ The workspace resource represents a Workspace in Tailor.
 ## Example Usage
 
 ```terraform
-# personal workspace
 resource "tailor_workspace" "starwars" {
-  name   = "starwars"
-  region = "us-west" // asia-northeast, europe-west
+  name            = "starwars"
+  region          = "us-west" // asia-northeast, europe-west
+  organization_id = data.tailor_organization.galactic_empire.id
 }
 
-#organization workspace
-resource "tailor_workspace" "org_workspace" {
-  name            = "org-workspace"
+resource "tailor_workspace" "hoth" {
+  name            = "hoth"
   region          = "us-west"
   organization_id = data.tailor_organization.galactic_empire.id
   folder_id       = tailor_organization_folder.hoth.id
@@ -34,6 +33,7 @@ resource "tailor_workspace" "org_workspace" {
 ### Required
 
 - `name` (String) The name of the workspace.
+- `organization_id` (String) The ID of the organization that the workspace belongs to. Changing it moves the workspace to that organization.
 - `region` (String) The region of the workspace.
 
 ### Optional
@@ -41,7 +41,6 @@ resource "tailor_workspace" "org_workspace" {
 - `delete_protection` (Boolean) Whether the workspace is protected from deletion.
 - `folder_id` (String) The ID of the organization folder that the workspace belongs to.
 - `labels` (Map of String) Labels for this workspace.
-- `organization_id` (String) The ID of the organization that the workspace belongs to.
 
 ### Read-Only
 
