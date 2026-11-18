@@ -68,7 +68,8 @@ InvalidArgument if any entry contains one. For `public` and `browser` client typ
 loopback redirects (`http://127.0.0.1` / `http://[::1]`) are allowed to use a different
 port at authorize time per RFC 8252 §7.3, but every other URI component (scheme, host,
 path, query, fragment, userinfo) must still match exactly.
-- `refresh_token_lifetime` (String) Optional refresh token lifetime as a duration string (e.g., "24h", "168h", "7d" is not supported, use "168h"). If not set, uses the default lifetime. Maximum allowed value is 168h (7 days).
+- `refresh_token_idle_lifetime` (String) Optional refresh token idle lifetime as a duration string (e.g., "24h", "720h"). When set, a refresh token also expires once it has not been used for this long, and each refresh restarts the count without going past `refresh_token_lifetime`. If not set, a refresh token has no idle expiry. Maximum allowed value is 720h (30 days). Must be between `access_token_lifetime` and `refresh_token_lifetime`.
+- `refresh_token_lifetime` (String) Optional refresh token lifetime as a duration string (e.g., "24h", "168h", "7d" is not supported, use "168h"). It is counted from the first authorization and is not extended when the refresh token is rotated. If not set, uses the default lifetime of 168h (7 days). Maximum allowed value is 2160h (90 days). A value above 168h (7 days) requires `refresh_token_idle_lifetime`.
 - `require_dpop` (Boolean) When true, DPoP proof is required for token requests. Cannot be set to true for browser clients as they don't support DPoP.
 
 ### Read-Only
